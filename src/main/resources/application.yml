@@ -1,0 +1,16 @@
+server:
+  port: 8081
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/View/
+      suffix: .jsp
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url : jdbc:mysql://localhost:3306/salary?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    username : root
+    password : 123456
+# Mybatis
+mybatis:
+  typeAliasesPackage: com.salary.model
+  mapperLocations: classpath:com/salary/dao/mapper/*.xml
