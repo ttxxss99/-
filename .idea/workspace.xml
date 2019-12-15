@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9802836d-d665-43d1-be74-18359db73b31" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/salary/service/EmployeeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/salary/service/Impl/EmployeeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/salary/contorller/PageContorller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +42,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -85,13 +85,21 @@
       <option name="project" value="LOCAL" />
       <updated>1576296218793</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="second commit">
+      <created>1576313719324</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1576313719324</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="second commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="second commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="560" y="178" key="#Notifications" timestamp="1576300722358">
@@ -110,10 +118,10 @@
       <screen x="0" y="23" width="1920" height="980" />
     </state>
     <state x="722" y="148" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1920.980@0.23.1920.980" timestamp="1576313438665" />
-    <state x="593" y="116" key="CommitChangelistDialog2" timestamp="1576296218452">
+    <state x="593" y="116" key="CommitChangelistDialog2" timestamp="1576313718983">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
-    <state x="593" y="116" key="CommitChangelistDialog2/0.23.1920.980@0.23.1920.980" timestamp="1576296218452" />
+    <state x="593" y="116" key="CommitChangelistDialog2/0.23.1920.980@0.23.1920.980" timestamp="1576313718983" />
     <state x="769" y="436" key="Github.CreateGistDialog" timestamp="1576295864762">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
@@ -138,9 +146,9 @@
       <screen x="0" y="23" width="1920" height="980" />
     </state>
     <state x="469" y="152" key="SettingsEditor/0.23.1920.980@0.23.1920.980" timestamp="1576296069581" />
-    <state x="560" y="241" key="Vcs.Push.Dialog.v2" timestamp="1576311620243">
+    <state x="560" y="241" key="Vcs.Push.Dialog.v2" timestamp="1576313724472">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
-    <state x="560" y="241" key="Vcs.Push.Dialog.v2/0.23.1920.980@0.23.1920.980" timestamp="1576311620243" />
+    <state x="560" y="241" key="Vcs.Push.Dialog.v2/0.23.1920.980@0.23.1920.980" timestamp="1576313724472" />
   </component>
 </project>
