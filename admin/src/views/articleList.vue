@@ -41,15 +41,15 @@
 						</template>
 					</el-table-column>
 				</el-table>
-				<!-- 分页 -->
-				<div class="pagination">
-					<el-pagination
-						:page-sizes="[100, 200, 300, 400]"
-						:page-size="100"
-						layout="prev, pager, next"
-						:total="400"
-					></el-pagination>
-				</div>
+			</div>
+			<!-- 分页 -->
+			<div class="pagination">
+				<el-pagination
+					:page-sizes="[100, 200, 300, 400]"
+					:page-size="100"
+					layout="prev, pager, next"
+					:total="400"
+				></el-pagination>
 			</div>
 		</div>
 	</div>
@@ -111,23 +111,44 @@ export default {
 					date: '2016-05-02',
 					name: '王小虎',
 					address: '上海市普陀区金沙江路 1518 弄'
+				},
+				{
+					date: '2016-05-01',
+					name: '王小虎',
+					address: '上海市普陀区金沙江路 1519 弄'
+				},
+				{
+					date: '2016-05-03',
+					name: '王小虎',
+					address: '上海市普陀区金沙江路 1516 弄'
+				},
+				{
+					date: '2016-05-02',
+					name: '王小虎',
+					address: '上海市普陀区金沙江路 1518 弄'
+				},
+				{
+					date: '2016-05-02',
+					name: '王小虎',
+					address: '上海市普陀区金沙江路 1518 弄'
 				}
 			]
 		}
-    },
-    created () {
-        this.tableDataAjax()
-    },
-    methods:{
-        //获取表格数据
-        tableDataAjax(){
-            this.$axios.get().then(res=>{
-
-            }).catch(err=>{
-                console.log(err)
-            })
-        }
-    },
+	},
+	created() {
+		this.tableDataAjax()
+	},
+	methods: {
+		//获取表格数据
+		tableDataAjax() {
+			this.$axios
+				.get()
+				.then(res => {})
+				.catch(err => {
+					console.log(err)
+				})
+		}
+	},
 	components: {}
 }
 </script>
@@ -139,8 +160,8 @@ export default {
 	height: 100%;
 
 	& > p {
-        padding: 10px;
-        position: absolute;
+		padding: 10px;
+		position: absolute;
 		font-size: 16px;
 		font-weight: bold;
 		margin-bottom: 10px;
@@ -148,22 +169,18 @@ export default {
 	}
 }
 .article-table-wrap {
-    padding-top:50px;
-    width: 100%;
-    box-sizing: border-box;
+	padding: 50px 0 40px 0;
+	width: 100%;
+	box-sizing: border-box;
 	animation: show 0.8s;
 	position: relative;
 	height: 100%;
 
 	.table {
-		width: 100%;
-		position: absolute;
-	}
-
-	.pagination {
-		position: absolute;
-		bottom: -40px;
-		right: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: auto;
 	}
 }
 

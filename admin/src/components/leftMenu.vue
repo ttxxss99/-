@@ -120,7 +120,7 @@ export default {
 					{
 						width: '50%',
 						top: '3px',
-						transform: 'rotateZ(-45deg)',
+						transform: 'rotateZ(-40deg)',
 						opacity: '1'
 					},
 					{
@@ -140,7 +140,7 @@ export default {
 					{
 						width: '50%',
 						top: '3px',
-						transform: 'translateX(7px) rotateZ(45deg)',
+						transform: 'translateX(10px) rotateZ(45deg)',
 						opacity: '1'
 					},
 					{
@@ -152,7 +152,7 @@ export default {
 					{
 						width: '50%',
 						top: '-3px',
-						transform: 'translateX(7px) rotateZ(-45deg)',
+						transform: 'translateX(10px) rotateZ(-45deg)',
 						opacity: '1'
 					}
 				]
