@@ -5,30 +5,14 @@
 		<div class="article-table-wrap">
 			<div class="table">
 				<el-table :data="tableData" border stripe style="width: 100%" size="mini">
-					<el-table-column label="标题" show-overflow-tooltip min-width="200">
-						<template slot-scope="scope">
-							<div class="article-title">
-								<span>文章标题文章标题文章标题文章标题文章标题文章标题文章标题</span>
-							</div>
-						</template>
+					<el-table-column v-for="item in tableHeader" :label="item.label" :prop="item.prop" show-overflow-tooltip width="auto">
+						
 					</el-table-column>
-					<el-table-column label="分类" align="center" show-overflow-tooltip>
-						<template slot-scope="scope">java</template>
-					</el-table-column>
-					<el-table-column label="阅读量" align="center">
-						<template slot-scope="scope">1000</template>
-					</el-table-column>
-					<el-table-column label="加密" align="center">
-						<template slot-scope="scope">是</template>
-					</el-table-column>
-					<el-table-column prop="createTime" label="创建时间">2018-6-45 11:25:00</el-table-column>
-					<el-table-column prop="createTime" label="发布时间">2018-6-45 11:25:00</el-table-column>
-					<el-table-column prop="createTime" label="更新时间">2018-6-45 11:25:00</el-table-column>
-					<el-table-column label="状态">
+					<!-- <el-table-column label="状态">
 						<template slot-scope="scope">
 							<el-tag :type="true ? 'primary' : 'success'" size="mini" disable-transitions>已使用</el-tag>
 						</template>
-					</el-table-column>
+					</el-table-column> -->
 					<el-table-column label="操作" width="200">
 						<template slot-scope="scope">
 							<el-button size="mini" icon="el-icon-edit" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
@@ -61,77 +45,25 @@ export default {
 	data() {
 		return {
 			pageSize: 10, //每页显示9条数据
-			tableData: [
+			tableHeader:[
 				{
-					date: '2016-05-02',
-					name: '王小虎',
-					address: '上海市普陀区金沙江路 1518 弄'
+					label:'1',
+					prop:'day'
 				},
 				{
-					date: '2016-05-04',
-					name: '王小虎',
-					address: '上海市普陀区金沙江路 1517 弄'
+					label:'2',
+					prop:'daySalary'
 				},
 				{
-					date: '2016-05-01',
-					name: '王小虎',
-					address: '上海市普陀区金沙江路 1519 弄'
+					label:'3',
+					prop:'pname'
 				},
 				{
-					date: '2016-05-03',
-					name: '王小虎',
-					address: '上海市普陀区金沙江路 1516 弄'
-				},
-				{
-					date: '2016-05-02',
-					name: '王小虎',
-					address: '上海市普陀区金沙江路 1518 弄'
-				},
-				{
-					date: '2016-05-04',
-					name: '王小虎',
-					address: '上海市普陀区金沙江路 1517 弄'
-				},
-				{
-					date: '2016-05-01',
-					name: '王小虎',
-					address: '上海市普陀区金沙江路 1519 弄'
-				},
-				{
-					date: '2016-05-03',
-					name: '王小虎',
-					address: '上海市普陀区金沙江路 1516 弄'
-				},
-				{
-					date: '2016-05-02',
-					name: '王小虎',
-					address: '上海市普陀区金沙江路 1518 弄'
-				},
-				{
-					date: '2016-05-02',
-					name: '王小虎',
-					address: '上海市普陀区金沙江路 1518 弄'
-				},
-				{
-					date: '2016-05-01',
-					name: '王小虎',
-					address: '上海市普陀区金沙江路 1519 弄'
-				},
-				{
-					date: '2016-05-03',
-					name: '王小虎',
-					address: '上海市普陀区金沙江路 1516 弄'
-				},
-				{
-					date: '2016-05-02',
-					name: '王小虎',
-					address: '上海市普陀区金沙江路 1518 弄'
-				},
-				{
-					date: '2016-05-02',
-					name: '王小虎',
-					address: '上海市普陀区金沙江路 1518 弄'
+					label:'4',
+					prop:'ename'
 				}
+			],
+			tableData: [
 			]
 		}
 	},
@@ -142,8 +74,11 @@ export default {
 		//获取表格数据
 		tableDataAjax() {
 			this.$axios
-				.get()
-				.then(res => {})
+				.get('/place/selectAll')
+				.then(res => {
+					console.log(res)
+					this.tableData = res.data.data
+				})
 				.catch(err => {
 					console.log(err)
 				})
