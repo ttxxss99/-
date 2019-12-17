@@ -10,5 +10,5 @@ public class PlaceListVo {
     private String pName;
     private String eName;
     private int day;
-    private int datSalary;
+    private int daySalary;
 }

@@ -11,7 +11,7 @@ import '../static/fonts/iconfont.css'
 import animate from 'animate.css'
 
 //axios默认地址
-axios.defaults.baseURL = 'localhost:8081'
+axios.defaults.baseURL = 'http://localhost:8081'
 Vue.prototype.$axios = axios;
 
 Vue.config.productionTip = false

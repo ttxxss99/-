@@ -29,4 +29,9 @@ public class PlaceServiceImpl implements PlaceService {
     public List<PlaceListVo> selectAll() {
         return placeDao.selectAll();
     }
+
+    @Override
+    public List<PlaceListVo> selectByName(PlaceListVo placeListVo) {
+        return placeDao.selectByName(placeListVo);
+    }
 }
