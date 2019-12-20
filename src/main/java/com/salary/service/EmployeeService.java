@@ -9,4 +9,5 @@ public interface EmployeeService {
     int update(Employee employee);
     List<Employee> selectAll();
     Employee selectOne(int id);
+    int delete(int i);
 }

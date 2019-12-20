@@ -1,6 +1,8 @@
 package com.salary.dao;
 
 import com.salary.model.Salary;
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 
 public interface SalaryDao {

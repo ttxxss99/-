@@ -32,4 +32,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee selectOne(int id) {
         return employeeDao.selectByPrimaryKey(id);
     }
+
+    @Override
+    public int delete(int i) {
+        return employeeDao.deleteByPrimaryKey(i);
+    }
 }

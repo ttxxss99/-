@@ -90,10 +90,10 @@
     FROM Place,Place_and_Employee,Employee
     WHERE Place.id=Place_and_Employee.p_id and Employee.id=Place_and_Employee.e_id and Place.logic_del=0
     <if test="pName !=null and pName != ''">
-      and p_name like concat ('%',#{pName},'%')
+      and p_name like '%' #{pName} '%'
     </if>
     <if test="eName !=null and eName != ''">
-      and e_name like concat ('%',#{eName},'%')
+      and e_name like '%' #{eName} '%'
     </if>
   </select>
 </mapper>
