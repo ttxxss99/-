@@ -1,7 +1,6 @@
 package com.salary.contorller.employee;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.salary.model.Employee;
 import com.salary.service.EmployeeService;
@@ -42,50 +41,59 @@ public class EmployeeContorller {
 
     @ApiOperation(value = "修改单个员工",notes = "修改单个员工")
     @PostMapping("/update")
-    public String update(HttpServletRequest request){
+    public Object update(HttpServletRequest request){
         String data = request.getParameter("data");
         Employee employee = (Employee) JSON.parse(data);
         int i = employeeService.update(employee);
+        Map<String,Object> map =new HashMap<String,Object>();
         if(i>0){
-            return "成功";
+            map.put("data","成功");
+            return map;
         }else{
-
-            return "失败";
+            map.put("data","失败");
+            return map;
         }
     }
 
     @ApiOperation(value = "删除单个员工",notes = "删除单个员工")
     @PostMapping("/delete")
-    public String delete(@RequestBody String s){
-//        String data = request.getParameter("data");
+    public Object delete(@RequestBody String s){
         System.out.println(s.toString());
         JSONObject jsonObject = JSON.parseObject(s);
         List<Integer> integers = (List<Integer>) jsonObject.get("data");
-//        List<Integer> integers = JSON.parseArray(s, Integer.class);
         Integer[] ids = new Integer[integers.size()];
         integers.toArray(ids);
         int n=0;
         for (int i: ids) {
             n = employeeService.delete(i);
         }
+        Map<String,Object> map =new HashMap<String,Object>();
         if(n>0){
-            return "成功";
+            map.put("data","成功");
+            return map;
         }else{
-            return "失败";
+            map.put("data","失败");
+            return map;
         }
     }
 
     @ApiOperation(value = "增加单个员工",notes = "增加单个员工")
     @PostMapping("/insert")
-    public String insert(HttpServletRequest request){
-        String data = request.getParameter("data");
-        Employee employee = JSON.parseObject(data, Employee.class);
-        employeeService.insert(employee);
-        int n=0;
+    public Object insert(@RequestBody JSONObject s){
+        System.out.println(s.toString());
+        Map<String,Object> map =new HashMap<String,Object>();
+        Employee employee = s.getObject("data", Employee.class);
+        if(employee.geteName()==null){
+            map.put("data","失败");
+            return map;
+        }
+        int n=employeeService.insert(employee);;
         if(n>0){
-            return "成功";
+            map.put("data","成功");
+            return map;
         }else{
-            return "失败";
+            map.put("data","失败");
+            return map;
         }
     }
 }
