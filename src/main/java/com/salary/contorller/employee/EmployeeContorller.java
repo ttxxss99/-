@@ -40,11 +40,10 @@ public class EmployeeContorller {
     }
 
     @ApiOperation(value = "修改单个员工",notes = "修改单个员工")
-    @PostMapping("/update")
+    @PostMapping(value = "/update",consumes = "application/json")
     public Object update(@RequestBody JSONObject s){
         Map<String,Object> map =new HashMap<String,Object>();
         Employee employee = s.getObject("data", Employee.class);
-//        employee.setLogicDel(1);
         if(employee.geteName()==null){
             map.put("data","失败");
             return map;
@@ -60,9 +59,8 @@ public class EmployeeContorller {
     }
 
     @ApiOperation(value = "删除单个员工",notes = "删除单个员工")
-    @PostMapping("/delete")
+    @PostMapping(value = "/delete",consumes = "application/json")
     public Object delete(@RequestBody String s){
-//        System.out.println(s.toString());
         JSONObject jsonObject = JSON.parseObject(s);
         List<Integer> integers = (List<Integer>) jsonObject.get("data");
         Integer[] ids = new Integer[integers.size()];
@@ -82,9 +80,8 @@ public class EmployeeContorller {
     }
 
     @ApiOperation(value = "增加单个员工",notes = "增加单个员工")
-    @PostMapping("/insert")
+    @PostMapping(value = "/insert",consumes = "application/json")
     public Object insert(@RequestBody JSONObject s){
-//        System.out.println(s.toString());
         Map<String,Object> map =new HashMap<String,Object>();
         Employee employee = s.getObject("data", Employee.class);
         employee.setLogicDel(1);
