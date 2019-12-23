@@ -20,7 +20,7 @@
       This element was generated on Sun Dec 15 16:41:20 CST 2019.
     -->
     UPDATE Employee
-    SET Employee.logic_del = -1
+    SET Employee.logic_del = 0
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.salary.model.Employee">
@@ -58,7 +58,7 @@
     -->
     select id, e_name, e_day, mark, logic_del
     from Employee
-    where id = #{id,jdbcType=INTEGER} and logic_del = 0
+    where id = #{id,jdbcType=INTEGER} and logic_del = 1
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     <!--
@@ -68,6 +68,6 @@
     -->
     select id, e_name, e_day, mark, logic_del
     from Employee
-    where logic_del = 0
+    where logic_del = 1
   </select>
 </mapper>

@@ -29,10 +29,10 @@ public class EmployeeContorller {
     }
 
     @ApiOperation(value = "获取单个员工",notes = "获取员工")
-    @PostMapping("/selectByName")
+    @GetMapping("/selectByName")
     public Object selectByName(HttpServletRequest request){
         String data = request.getParameter("data");
-        int i = Integer.getInteger(data);
+        int i = Integer.parseInt(data);
         Employee employee = employeeService.selectOne(i);
         Map<String,Object> map =new HashMap<String,Object>();
         map.put("data",employee);
@@ -41,12 +41,16 @@ public class EmployeeContorller {
 
     @ApiOperation(value = "修改单个员工",notes = "修改单个员工")
     @PostMapping("/update")
-    public Object update(HttpServletRequest request){
-        String data = request.getParameter("data");
-        Employee employee = (Employee) JSON.parse(data);
-        int i = employeeService.update(employee);
+    public Object update(@RequestBody JSONObject s){
         Map<String,Object> map =new HashMap<String,Object>();
-        if(i>0){
+        Employee employee = s.getObject("data", Employee.class);
+//        employee.setLogicDel(1);
+        if(employee.geteName()==null){
+            map.put("data","失败");
+            return map;
+        }
+        int n=employeeService.update(employee);
+        if(n>0){
             map.put("data","成功");
             return map;
         }else{
@@ -58,7 +62,7 @@ public class EmployeeContorller {
     @ApiOperation(value = "删除单个员工",notes = "删除单个员工")
     @PostMapping("/delete")
     public Object delete(@RequestBody String s){
-        System.out.println(s.toString());
+//        System.out.println(s.toString());
         JSONObject jsonObject = JSON.parseObject(s);
         List<Integer> integers = (List<Integer>) jsonObject.get("data");
         Integer[] ids = new Integer[integers.size()];
@@ -80,9 +84,10 @@ public class EmployeeContorller {
     @ApiOperation(value = "增加单个员工",notes = "增加单个员工")
     @PostMapping("/insert")
     public Object insert(@RequestBody JSONObject s){
-        System.out.println(s.toString());
+//        System.out.println(s.toString());
         Map<String,Object> map =new HashMap<String,Object>();
         Employee employee = s.getObject("data", Employee.class);
+        employee.setLogicDel(1);
         if(employee.geteName()==null){
             map.put("data","失败");
             return map;
