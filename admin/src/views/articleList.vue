@@ -4,7 +4,7 @@
 		<p>文章列表（共12篇文章）</p>
 		<div class="article-table-wrap">
 			<div class="table">
-				<el-table :data="tableData" border stripe style="width: 100%" size="mini">
+				<el-table :data="tableData" show-summary border stripe style="width: 100%" size="mini">
 					<el-table-column v-for="item in tableHeader" :label="item.label" :prop="item.prop" show-overflow-tooltip width="auto">
 						
 					</el-table-column>
@@ -64,6 +64,48 @@ export default {
 				}
 			],
 			tableData: [
+                {
+                    day:1,
+                    daySalary:23,
+                    pname:"222",
+                    ename:'sss'
+                },
+                {
+                    day:1,
+                    daySalary:23,
+                    pname:"222",
+                    ename:'sss'
+                },
+                {
+                    day:1,
+                    daySalary:23,
+                    pname:"222",
+                    ename:'sss'
+                },
+                {
+                    day:1,
+                    daySalary:23,
+                    pname:"222",
+                    ename:'sss'
+                },
+                {
+                    day:1,
+                    daySalary:23,
+                    pname:"222",
+                    ename:'sss'
+                },
+                {
+                    day:1,
+                    daySalary:23,
+                    pname:"222",
+                    ename:'sss'
+                },
+                {
+                    day:1,
+                    daySalary:23,
+                    pname:"222",
+                    ename:'sss'
+                }
 			]
 		}
 	},
