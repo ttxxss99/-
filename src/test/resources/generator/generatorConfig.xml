@@ -25,22 +25,22 @@
         <javaClientGenerator targetPackage="com.salary.dao" targetProject="src/main/java"
                              type="XMLMAPPER"/>
         <!--自动生成的表 -->
-<!--        <table tableName="Place" domainObjectName="Place"  mapperName="PlaceDao" >-->
-<!--            &lt;!&ndash; mysql 配置 &ndash;&gt;-->
-<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
-<!--        </table>-->
-<!--        <table tableName="Salary" domainObjectName="Salary"  mapperName="SalaryDao" >-->
-<!--            &lt;!&ndash; mysql 配置 &ndash;&gt;-->
-<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
-<!--        </table>-->
-<!--        <table tableName="Employee" domainObjectName="Employee"  mapperName="EmployeeDao" >-->
-<!--            &lt;!&ndash; mysql 配置 &ndash;&gt;-->
-<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
-<!--        </table>-->
-        <table tableName="Place_and_Employee" domainObjectName="PlaceAndEmployee"  mapperName="PlaceAndEmployeeDao" >
+        <table tableName="Place" domainObjectName="Place"  mapperName="PlaceDao" >
             <!-- mysql 配置 -->
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
+        <table tableName="Salary" domainObjectName="Salary"  mapperName="SalaryDao" >
+            <!-- mysql 配置 -->
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="Employee" domainObjectName="Employee"  mapperName="EmployeeDao" >
+            <!-- mysql 配置 -->
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+<!--        <table tableName="ehr_releases" domainObjectName="Releases"  mapperName="ReleasesDao" >-->
+<!--            &lt;!&ndash; mysql 配置 &ndash;&gt;-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+<!--        </table>-->
 <!--        <table tableName="ehr_talentpool" domainObjectName="Talentpool"  mapperName="TalentpoolDao" >-->
 <!--            &lt;!&ndash; mysql 配置 &ndash;&gt;-->
 <!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->

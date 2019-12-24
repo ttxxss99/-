@@ -2,35 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9802836d-d665-43d1-be74-18359db73b31" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/salary/config/SwaggerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/salary/contorller/place/PlaceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/salary/contorller/salary/SalaryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/salary/model/Vo/PlaceListVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/salary/model/Vo/SalaryListVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/salary/service/Impl/PlaceServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/salary/service/PlaceService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/contorller/PageContorller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salary/contorller/PageContorller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/dao/EmployeeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salary/dao/EmployeeDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/dao/PlaceDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salary/dao/PlaceDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/dao/SalaryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salary/dao/SalaryDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/dao/mapper/EmployeeDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/EmployeeDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/dao/mapper/PlaceDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PlaceDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/dao/mapper/SalaryDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SalaryDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salary/model/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/model/Place.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salary/model/Place.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/model/Salary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salary/model/Salary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/service/Impl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salary/service/Impl/EmployeeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/service/Impl/SalaryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salary/service/Impl/SalaryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/service/SalaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salary/service/SalaryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/contorller/employee/EmployeeContorller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salary/contorller/employee/EmployeeContorller.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="148" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="myDemo" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -42,7 +26,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="IgnoredFileRootStore">
     <option name="generatedRoots">
@@ -65,17 +49,25 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propDebugger" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/mapper" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.salary" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.app">
     <configuration name="app" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.salary.app" />
       <module name="myDemo" />
@@ -89,9 +81,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DaoTest.selectByNameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="myDemo" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DaoTest" />
+      <option name="METHOD_NAME" value="selectByNameTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.app" />
+        <item itemvalue="JUnit.DaoTest.selectByNameTest" />
       </list>
     </recent_temporary>
   </component>
@@ -146,7 +149,42 @@
       <option name="project" value="LOCAL" />
       <updated>1576385299941</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="sql commit">
+      <created>1576406383934</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1576406383934</updated>
+    </task>
+    <task id="LOCAL-00006" summary="sql未编写">
+      <created>1576589374474</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1576589374474</updated>
+    </task>
+    <task id="LOCAL-00007" summary="接受body数据编写完成">
+      <created>1576850665019</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1576850665019</updated>
+    </task>
+    <task id="LOCAL-00008" summary="接受body数据编写完成">
+      <created>1576894091502</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1576894091503</updated>
+    </task>
+    <task id="LOCAL-00009" summary="员工表 后端完成">
+      <created>1577071105969</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1577071105969</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -154,7 +192,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -205,92 +245,150 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first commit" />
     <MESSAGE value="second commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="second commit" />
+    <MESSAGE value="sql commit" />
+    <MESSAGE value="sql未编写" />
+    <MESSAGE value="接受body数据编写完成" />
+    <MESSAGE value="员工表 后端完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="员工表 后端完成" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="560" y="179" width="800" height="717" key="#Intentions" timestamp="1576841780724">
+      <screen x="0" y="23" width="1920" height="980" />
+    </state>
+    <state x="560" y="179" width="800" height="717" key="#Intentions/0.23.1920.980@0.23.1920.980" timestamp="1576841780724" />
     <state x="560" y="178" key="#Notifications" timestamp="1576300722358">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
     <state x="560" y="178" key="#Notifications/0.23.1920.980@0.23.1920.980" timestamp="1576300722358" />
-    <state x="560" y="178" key="#Project_Structure" timestamp="1576291436949">
+    <state x="560" y="178" key="#Project_Structure" timestamp="1576850623543">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
-    <state x="560" y="178" key="#Project_Structure/0.23.1920.980@0.23.1920.980" timestamp="1576291436949" />
-    <state x="773" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1576395752498">
+    <state x="560" y="178" key="#Project_Structure/0.23.1920.980@0.23.1920.980" timestamp="1576850623543" />
+    <state x="773" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1576842894393">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
-    <state x="773" y="229" key="#com.intellij.ide.util.MemberChooser/0.23.1920.980@0.23.1920.980" timestamp="1576395752498" />
+    <state x="773" y="229" key="#com.intellij.ide.util.MemberChooser/0.23.1920.980@0.23.1920.980" timestamp="1576842894392" />
     <state x="618" y="445" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1576402334214">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
     <state x="618" y="445" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.23.1920.980@0.23.1920.980" timestamp="1576402334214" />
-    <state x="722" y="148" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1576313438665">
+    <state x="722" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1576719577042">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
-    <state x="722" y="148" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1920.980@0.23.1920.980" timestamp="1576313438665" />
-    <state x="593" y="116" key="CommitChangelistDialog2" timestamp="1576385299353">
+    <state x="722" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1920.980@0.23.1920.980" timestamp="1576719577042" />
+    <state x="698" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576845152822">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
-    <state x="593" y="116" key="CommitChangelistDialog2/0.23.1920.980@0.23.1920.980" timestamp="1576385299353" />
-    <state width="517" height="466" key="DebuggerActiveHint" timestamp="1576405645476">
+    <state x="698" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1920.980@0.23.1920.980" timestamp="1576845152822" />
+    <state x="849" y="223" width="750" height="579" key="#xdebugger.evaluate" timestamp="1576751054229">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
-    <state width="517" height="466" key="DebuggerActiveHint/0.23.1920.980@0.23.1920.980" timestamp="1576405645476" />
+    <state x="849" y="223" width="750" height="579" key="#xdebugger.evaluate/0.23.1920.980@0.23.1920.980" timestamp="1576751054229" />
+    <state x="593" y="116" key="CommitChangelistDialog2" timestamp="1577071105265">
+      <screen x="0" y="23" width="1920" height="980" />
+    </state>
+    <state x="593" y="116" key="CommitChangelistDialog2/0.23.1920.980@0.23.1920.980" timestamp="1577071105265" />
+    <state width="755" height="466" key="DebuggerActiveHint" timestamp="1576751272269">
+      <screen x="0" y="23" width="1920" height="980" />
+    </state>
+    <state width="755" height="466" key="DebuggerActiveHint/0.23.1920.980@0.23.1920.980" timestamp="1576751272269" />
     <state x="100" y="123" width="1720" height="780" key="DiffContextDialog" timestamp="1576393776528">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
     <state x="100" y="123" width="1720" height="780" key="DiffContextDialog/0.23.1920.980@0.23.1920.980" timestamp="1576393776528" />
-    <state x="769" y="436" key="Github.CreateGistDialog" timestamp="1576295864762">
+    <state x="769" y="436" key="Github.CreateGistDialog" timestamp="1576843627179">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
-    <state x="769" y="436" key="Github.CreateGistDialog/0.23.1920.980@0.23.1920.980" timestamp="1576295864762" />
-    <state width="1878" height="247" key="GridCell.Tab.0.bottom" timestamp="1576406224602">
+    <state x="769" y="436" key="Github.CreateGistDialog/0.23.1920.980@0.23.1920.980" timestamp="1576843627179" />
+    <state width="1878" height="352" key="GridCell.Tab.0.bottom" timestamp="1577072794885">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
-    <state width="1878" height="247" key="GridCell.Tab.0.bottom/0.23.1920.980@0.23.1920.980" timestamp="1576406224602" />
-    <state width="1878" height="247" key="GridCell.Tab.0.center" timestamp="1576406224601">
+    <state width="1878" height="352" key="GridCell.Tab.0.bottom/0.23.1920.980@0.23.1920.980" timestamp="1577072794885" />
+    <state width="1878" height="352" key="GridCell.Tab.0.center" timestamp="1577072794884">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
-    <state width="1878" height="247" key="GridCell.Tab.0.center/0.23.1920.980@0.23.1920.980" timestamp="1576406224601" />
-    <state width="1878" height="247" key="GridCell.Tab.0.left" timestamp="1576406224600">
+    <state width="1878" height="352" key="GridCell.Tab.0.center/0.23.1920.980@0.23.1920.980" timestamp="1577072794884" />
+    <state width="1878" height="352" key="GridCell.Tab.0.left" timestamp="1577072794884">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
-    <state width="1878" height="247" key="GridCell.Tab.0.left/0.23.1920.980@0.23.1920.980" timestamp="1576406224600" />
-    <state width="1878" height="247" key="GridCell.Tab.0.right" timestamp="1576406224602">
+    <state width="1878" height="352" key="GridCell.Tab.0.left/0.23.1920.980@0.23.1920.980" timestamp="1577072794884" />
+    <state width="1878" height="352" key="GridCell.Tab.0.right" timestamp="1577072794884">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
-    <state width="1878" height="247" key="GridCell.Tab.0.right/0.23.1920.980@0.23.1920.980" timestamp="1576406224602" />
-    <state width="1878" height="247" key="GridCell.Tab.1.bottom" timestamp="1576406224470">
+    <state width="1878" height="352" key="GridCell.Tab.0.right/0.23.1920.980@0.23.1920.980" timestamp="1577072794884" />
+    <state width="1878" height="352" key="GridCell.Tab.1.bottom" timestamp="1577072794885">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
-    <state width="1878" height="247" key="GridCell.Tab.1.bottom/0.23.1920.980@0.23.1920.980" timestamp="1576406224470" />
-    <state width="1878" height="247" key="GridCell.Tab.1.center" timestamp="1576406224469">
+    <state width="1878" height="352" key="GridCell.Tab.1.bottom/0.23.1920.980@0.23.1920.980" timestamp="1577072794885" />
+    <state width="1878" height="352" key="GridCell.Tab.1.center" timestamp="1577072794885">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
-    <state width="1878" height="247" key="GridCell.Tab.1.center/0.23.1920.980@0.23.1920.980" timestamp="1576406224469" />
-    <state width="1878" height="247" key="GridCell.Tab.1.left" timestamp="1576406224469">
+    <state width="1878" height="352" key="GridCell.Tab.1.center/0.23.1920.980@0.23.1920.980" timestamp="1577072794885" />
+    <state width="1878" height="352" key="GridCell.Tab.1.left" timestamp="1577072794885">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
-    <state width="1878" height="247" key="GridCell.Tab.1.left/0.23.1920.980@0.23.1920.980" timestamp="1576406224469" />
-    <state width="1878" height="247" key="GridCell.Tab.1.right" timestamp="1576406224469">
+    <state width="1878" height="352" key="GridCell.Tab.1.left/0.23.1920.980@0.23.1920.980" timestamp="1577072794885" />
+    <state width="1878" height="352" key="GridCell.Tab.1.right" timestamp="1577072794885">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
-    <state width="1878" height="247" key="GridCell.Tab.1.right/0.23.1920.980@0.23.1920.980" timestamp="1576406224469" />
-    <state x="469" y="152" key="SettingsEditor" timestamp="1576406088017">
+    <state width="1878" height="352" key="GridCell.Tab.1.right/0.23.1920.980@0.23.1920.980" timestamp="1577072794885" />
+    <state x="469" y="152" key="SettingsEditor" timestamp="1576737720968">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
-    <state x="469" y="152" key="SettingsEditor/0.23.1920.980@0.23.1920.980" timestamp="1576406088017" />
-    <state x="560" y="241" key="Vcs.Push.Dialog.v2" timestamp="1576385302446">
+    <state x="469" y="152" key="SettingsEditor/0.23.1920.980@0.23.1920.980" timestamp="1576737720968" />
+    <state x="560" y="241" key="Vcs.Push.Dialog.v2" timestamp="1577071108137">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
-    <state x="560" y="241" key="Vcs.Push.Dialog.v2/0.23.1920.980@0.23.1920.980" timestamp="1576385302446" />
-    <state x="749" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1576393375736">
+    <state x="560" y="241" key="Vcs.Push.Dialog.v2/0.23.1920.980@0.23.1920.980" timestamp="1577071108137" />
+    <state x="639" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1576718931193">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
-    <state x="749" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1920.980@0.23.1920.980" timestamp="1576393375736" />
+    <state x="639" y="345" key="com.intellij.ide.util.TipDialog/0.23.1920.980@0.23.1920.980" timestamp="1576718931193" />
+    <state x="749" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1576488014887">
+      <screen x="0" y="23" width="1920" height="980" />
+    </state>
+    <state x="749" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1920.980@0.23.1920.980" timestamp="1576488014887" />
     <state x="528" y="256" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1576405909212">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
     <state x="528" y="256" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.23.1920.980@0.23.1920.980" timestamp="1576405909212" />
+    <state x="756" y="370" width="670" height="676" key="search.everywhere.popup" timestamp="1576741458142">
+      <screen x="0" y="23" width="1920" height="980" />
+    </state>
+    <state x="756" y="370" width="670" height="676" key="search.everywhere.popup/0.23.1920.980@0.23.1920.980" timestamp="1576741458142" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6-sources.jar!/org/apache/ibatis/builder/annotation/MapperAnnotationBuilder.java</url>
+          <line>471</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6-sources.jar!/org/apache/ibatis/builder/xml/XMLStatementBuilder.java</url>
+          <line>184</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6-sources.jar!/org/apache/ibatis/binding/MapperMethod.java</url>
+          <line>251</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6-sources.jar!/org/apache/ibatis/session/Configuration.java</url>
+          <line>763</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="ms.getId()" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/myDemo$DaoTest_selectByNameTest.ic" NAME="DaoTest.selectByNameTest Coverage Results" MODIFIED="1576740215358" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

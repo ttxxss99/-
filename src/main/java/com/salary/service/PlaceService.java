@@ -9,4 +9,5 @@ public interface PlaceService {
     int insert(Place place);
     int update(Place place);
     List<PlaceListVo> selectAll();
+    List<PlaceListVo> selectByName(PlaceListVo placeListVo);
 }
