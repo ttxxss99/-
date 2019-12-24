@@ -109,3 +109,13 @@ body,html{
     height: 100%;
     position: relative;
 }
+.flex{
+    display: flex;
+    align-items: center;
+}
+.ft12{
+    font-size: 12px;
+}
+.ft14{
+    font-size: 14px;
+}
