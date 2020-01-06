@@ -92,7 +92,7 @@ export default {
 		//获取表格数据
 		tableDataAjax() {
 			this.$axios
-				.get('/place/selectAll')
+				.get('/employee/selectAll')
 				.then(res => {
 					console.log(res)
 					this.tableData = res.data.data

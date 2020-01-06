@@ -20,7 +20,7 @@
 
         <javaModelGenerator targetPackage="com.salary.model" targetProject="src/main/java"/>
 
-        <sqlMapGenerator targetPackage="com.salary.dao.mapper" targetProject="src/main/java"/>
+        <sqlMapGenerator targetPackage="com.salary.mapper" targetProject="src/main/java"/>
 
         <javaClientGenerator targetPackage="com.salary.dao" targetProject="src/main/java"
                              type="XMLMAPPER"/>
@@ -37,7 +37,7 @@
 <!--            &lt;!&ndash; mysql 配置 &ndash;&gt;-->
 <!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
 <!--        </table>-->
-        <table tableName="Place_and_Employee" domainObjectName="PlaceAndEmployee"  mapperName="PlaceAndEmployeeDao" >
+        <table tableName="Employee" domainObjectName="Employee"  mapperName="EmployeeDao" >
             <!-- mysql 配置 -->
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
