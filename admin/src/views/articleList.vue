@@ -87,7 +87,7 @@ export default {
 			personModelShow: false,
 			modelTtile: '',
 			isEdit: false,
-			
+
 			personObj: {
 				name: '',
 				tel: '',
@@ -165,7 +165,7 @@ export default {
 		//提交
 		submit() {
 			console.log(this.personObj)
-			if (isEdit) {
+			if (this.isEdit) {
 				this.$axios
 					.post('/employee/update', this.personObj)
 					.then(res => {
