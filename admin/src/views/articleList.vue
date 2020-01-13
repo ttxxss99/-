@@ -50,7 +50,7 @@
 					:page-size="pageSize"
 					layout="prev, pager, next"
 					:current-page="pageIndex"
-					:current-change="handlePage"
+					@current-change="handlePage"
 					:total="pageTotal"
 				></el-pagination>
 			</div>
