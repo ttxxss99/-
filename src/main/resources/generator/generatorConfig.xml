@@ -13,38 +13,38 @@
 
 
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/salary?serverTimezone=GMT%2B8"
+                        connectionURL="jdbc:mysql://localhost:3306/bishe?serverTimezone=GMT%2B8"
                         userId="root"
                         password="123456">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.salary.model" targetProject="src/main/java"/>
+        <javaModelGenerator targetPackage="com.bishe.model" targetProject="src/main/java"/>
 
-        <sqlMapGenerator targetPackage="com.salary.mapper" targetProject="src/main/java"/>
+        <sqlMapGenerator targetPackage="com.bishe.mapper" targetProject="src/main/java"/>
 
-        <javaClientGenerator targetPackage="com.salary.dao" targetProject="src/main/java"
+        <javaClientGenerator targetPackage="com.bishe.dao" targetProject="src/main/java"
                              type="XMLMAPPER"/>
         <!--自动生成的表 -->
-<!--        <table tableName="Place" domainObjectName="Place"  mapperName="PlaceDao" >-->
-<!--            &lt;!&ndash; mysql 配置 &ndash;&gt;-->
-<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
-<!--        </table>-->
-<!--        <table tableName="Salary" domainObjectName="Salary"  mapperName="SalaryDao" >-->
-<!--            &lt;!&ndash; mysql 配置 &ndash;&gt;-->
-<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
-<!--        </table>-->
-<!--        <table tableName="Employee" domainObjectName="Employee"  mapperName="EmployeeDao" >-->
-<!--            &lt;!&ndash; mysql 配置 &ndash;&gt;-->
-<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
-<!--        </table>-->
-        <table tableName="Employee" domainObjectName="Employee"  mapperName="EmployeeDao" >
+        <table tableName="salary_detail" domainObjectName="SalaryDetail"  mapperName="SalaryDetailDao" >
             <!-- mysql 配置 -->
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
-<!--        <table tableName="ehr_talentpool" domainObjectName="Talentpool"  mapperName="TalentpoolDao" >-->
-<!--            &lt;!&ndash; mysql 配置 &ndash;&gt;-->
-<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
-<!--        </table>-->
+        <table tableName="post" domainObjectName="Post"  mapperName="PostDao" >
+            <!-- mysql 配置 -->
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="pay_structure" domainObjectName="PayStructure"  mapperName="PayStructureDao" >
+            <!-- mysql 配置 -->
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="employee" domainObjectName="Employee"  mapperName="EmployeeDao" >
+            <!-- mysql 配置 -->
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="salary_sheet" domainObjectName="SalarySheet"  mapperName="SalarySheetDao" >
+            <!-- mysql 配置 -->
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
 <!--        <table tableName="ehr_emp" domainObjectName="Emp"  mapperName="EmpDao" >-->
 <!--            &lt;!&ndash;mysql 配置&ndash;&gt;-->
 <!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
