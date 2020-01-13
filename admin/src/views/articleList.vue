@@ -142,7 +142,7 @@ export default {
 				.then(res => {
 					console.log(res)
 					this.tableData = res.data.data.items
-					this.totalPage = res.data.data.totalNum
+					this.pageTotal = res.data.data.totalNum
 				})
 				.catch(err => {
 					console.log(err)
