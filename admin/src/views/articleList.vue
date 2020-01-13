@@ -87,16 +87,16 @@ export default {
 			personModelShow: false,
 			modelTtile: '',
 			isEdit: false,
-			pageSize: 10,
-			pageTotal: 0,
+			
 			personObj: {
 				name: '',
 				tel: '',
 				mark: '',
 				workAge: ''
 			},
-			pageSize: 10, //每页显示9条数据
-			pageIndex: 0,
+            pageSize: 10, //每页显示9条数据
+            pageTotal: 0,
+			pageIndex: 1,
 			tableHeader: [
 				{
 					label: '姓名',
