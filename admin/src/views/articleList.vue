@@ -100,11 +100,19 @@ export default {
 			tableHeader: [
 				{
 					label: '姓名',
-					prop: 'eName'
+					prop: 'name'
 				},
 				{
-					label: '天数',
-					prop: 'eDay'
+					label: '工龄',
+					prop: 'workAge'
+                },
+                {
+					label: '电话',
+					prop: 'tel'
+                },
+                {
+					label: '时间',
+					prop: 'time'
 				},
 				{
 					label: '说明',
