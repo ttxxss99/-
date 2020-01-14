@@ -1,15 +1,6 @@
 package com.utils;
 
-import java.beans.BeanInfo;
-import java.beans.Introspector;
-import java.beans.PropertyDescriptor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
- 
-import org.apache.commons.beanutils.PropertyUtils;
  
 public class BeanUtils {
 

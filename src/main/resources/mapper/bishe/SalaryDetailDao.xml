@@ -98,6 +98,12 @@
             <if test="pName!=null and pName!='' ">
                 and post.`name` LIKE CONCAT(CONCAT('%', #{pName}),'%')
             </if>
+            <if test="eId!=null and eId!='' ">
+                and e_id = #{eId}
+            </if>
+            <if test="pId!=null and pId!='' ">
+                and p_id = #{pId}
+            </if>
         </where>
     </select>
     <select id="selectAll" resultMap="SalaryDetailVo">

@@ -63,7 +63,7 @@
         -->
         select id, e_id, day, money, p_s_id, time, logic_del
         from salary_sheet
-        where id = #{id,jdbcType=INTEGER} and logic_del=1
+        where e_id = #{id,jdbcType=INTEGER} and logic_del=1
     </select>
     <select id="selectAll" resultMap="BaseResultMap">
         <!--
