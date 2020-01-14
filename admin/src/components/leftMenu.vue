@@ -23,7 +23,7 @@
 						<i class="iconfont icon-article"></i>
 						<span>文章管理</span>
 					</template>
-					<el-menu-item index="/admin/article/publish">
+					<el-menu-item index="/article">
 						<i class="iconfont icon-article-edit"></i>写文章
 					</el-menu-item>
 					<el-menu-item index="/admin/article/list">
