@@ -2,79 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9802836d-d665-43d1-be74-18359db73b31" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/constant/WorkAge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/controller/PayStructureController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/controller/PostServiceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/controller/SalaryDetailController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/controller/SalarySheetController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/dao/PayStructureDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/dao/PostDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/dao/SalaryDetailDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/dao/SalarySheetDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/model/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/model/PayStructure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/model/Post.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/model/SalaryDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/model/SalarySheet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/model/vo/SalaryDetailVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/service/EmployeeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/service/Impl/EmployeeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/service/Impl/PayStructureServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/service/Impl/PostServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/service/Impl/SalaryDetailServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/service/Impl/SalarySheetServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/service/PayStructureService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/service/PostService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/service/SalaryDetailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bishe/service/SalarySheetService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/utils/LoggerUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/utils/PageBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/bishe/EmployeeDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/bishe/SalaryDetailDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/bishe/SalarySheetDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/utils/BeanUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/app.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/config/CorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/config/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/config/SwaggerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/contorller/PageContorller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/contorller/employee/EmployeeContorller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bishe/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/contorller/place/PlaceController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/contorller/salary/SalaryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/dao/AdvanceDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/dao/EmployeeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bishe/dao/EmployeeDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/dao/PlaceAndEmployeeDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/dao/PlaceDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/dao/SalaryDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/model/Advance.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/model/Employee.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/model/Place.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/model/PlaceAndEmployee.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/model/Salary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/model/Vo/PlaceListVo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/model/Vo/SalaryListVo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/service/EmployeeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/service/Impl/EmployeeServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/service/Impl/PlaceAndEmployeeServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/service/Impl/PlaceServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/service/Impl/SalaryServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/service/PlaceAndEmployeeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/service/PlaceService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/service/SalaryService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salary/utils/SpringContextUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utils/SpringContextUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/generator/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/generator/generatorConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/AdvanceDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/bishe/PayStructureDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/EmployeeDao.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PlaceAndEmployeeDao.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PlaceDao.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/SalaryDao.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DaoTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/generator/generatorConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/mapper/EmployeeDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/bishe/PostDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/mapper/PlaceDao.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/mapper/SalaryDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bishe/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bishe/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bishe/controller/PayStructureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bishe/controller/PayStructureController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bishe/controller/SalarySheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bishe/controller/SalarySheetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bishe/service/Impl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bishe/service/Impl/EmployeeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bishe/service/Impl/SalarySheetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bishe/service/Impl/SalarySheetServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bishe/service/SalarySheetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bishe/service/SalarySheetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/bishe/EmployeeDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/bishe/EmployeeDao.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578273749158</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="1">
+      <created>1578918553560</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1578918553560</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -291,6 +235,11 @@
             <list>
               <RecentGroup>
                 <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
                   <option value="origin/master" />
                 </option>
               </RecentGroup>
@@ -302,11 +251,6 @@
               <RecentGroup>
                 <option name="FILTER_VALUES">
                   <option value="origin/dependabot/npm_and_yarn/admin/webpack-bundle-analyzer-3.3.2" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="master" />
                 </option>
               </RecentGroup>
             </list>
@@ -394,85 +338,88 @@
     </state>
     <state width="755" height="466" key="DebuggerActiveHint/0.23.1920.980@0.23.1920.980" timestamp="1576751272269" />
     <state width="755" height="467" key="DebuggerActiveHint/0.23.1920.982@0.23.1920.982" timestamp="1578877837426" />
-    <state x="100" y="123" width="1720" height="782" key="DiffContextDialog" timestamp="1578666461368">
+    <state x="100" y="123" width="1720" height="782" key="DiffContextDialog" timestamp="1578924014905">
       <screen x="0" y="23" width="1920" height="982" />
     </state>
     <state x="100" y="123" width="1720" height="780" key="DiffContextDialog/0.23.1920.980@0.23.1920.980" timestamp="1576393776528" />
-    <state x="100" y="123" width="1720" height="782" key="DiffContextDialog/0.23.1920.982@0.23.1920.982" timestamp="1578666461368" />
+    <state x="100" y="123" width="1720" height="782" key="DiffContextDialog/0.23.1920.982@0.23.1920.982" timestamp="1578924014905" />
     <state x="769" y="436" key="Github.CreateGistDialog" timestamp="1576843627179">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
     <state x="769" y="436" key="Github.CreateGistDialog/0.23.1920.980@0.23.1920.980" timestamp="1576843627179" />
-    <state width="1878" height="220" key="GridCell.Tab.0.bottom" timestamp="1578916736417">
+    <state width="1878" height="145" key="GridCell.Tab.0.bottom" timestamp="1578983364023">
       <screen x="0" y="23" width="1920" height="982" />
     </state>
     <state width="1878" height="212" key="GridCell.Tab.0.bottom/0.23.1920.977@0.23.1920.977" timestamp="1578624861283" />
     <state width="1878" height="352" key="GridCell.Tab.0.bottom/0.23.1920.980@0.23.1920.980" timestamp="1577072794885" />
-    <state width="1878" height="220" key="GridCell.Tab.0.bottom/0.23.1920.982@0.23.1920.982" timestamp="1578916736417" />
-    <state width="1878" height="220" key="GridCell.Tab.0.center" timestamp="1578916736416">
+    <state width="1878" height="145" key="GridCell.Tab.0.bottom/0.23.1920.982@0.23.1920.982" timestamp="1578983364023" />
+    <state width="1878" height="145" key="GridCell.Tab.0.center" timestamp="1578983364022">
       <screen x="0" y="23" width="1920" height="982" />
     </state>
     <state width="1878" height="212" key="GridCell.Tab.0.center/0.23.1920.977@0.23.1920.977" timestamp="1578624861282" />
     <state width="1878" height="352" key="GridCell.Tab.0.center/0.23.1920.980@0.23.1920.980" timestamp="1577072794884" />
-    <state width="1878" height="220" key="GridCell.Tab.0.center/0.23.1920.982@0.23.1920.982" timestamp="1578916736416" />
-    <state width="1878" height="220" key="GridCell.Tab.0.left" timestamp="1578916736415">
+    <state width="1878" height="145" key="GridCell.Tab.0.center/0.23.1920.982@0.23.1920.982" timestamp="1578983364022" />
+    <state width="1878" height="145" key="GridCell.Tab.0.left" timestamp="1578983364021">
       <screen x="0" y="23" width="1920" height="982" />
     </state>
     <state width="1878" height="212" key="GridCell.Tab.0.left/0.23.1920.977@0.23.1920.977" timestamp="1578624861282" />
     <state width="1878" height="352" key="GridCell.Tab.0.left/0.23.1920.980@0.23.1920.980" timestamp="1577072794884" />
-    <state width="1878" height="220" key="GridCell.Tab.0.left/0.23.1920.982@0.23.1920.982" timestamp="1578916736415" />
-    <state width="1878" height="220" key="GridCell.Tab.0.right" timestamp="1578916736416">
+    <state width="1878" height="145" key="GridCell.Tab.0.left/0.23.1920.982@0.23.1920.982" timestamp="1578983364021" />
+    <state width="1878" height="145" key="GridCell.Tab.0.right" timestamp="1578983364023">
       <screen x="0" y="23" width="1920" height="982" />
     </state>
     <state width="1878" height="212" key="GridCell.Tab.0.right/0.23.1920.977@0.23.1920.977" timestamp="1578624861283" />
     <state width="1878" height="352" key="GridCell.Tab.0.right/0.23.1920.980@0.23.1920.980" timestamp="1577072794884" />
-    <state width="1878" height="220" key="GridCell.Tab.0.right/0.23.1920.982@0.23.1920.982" timestamp="1578916736416" />
-    <state width="1878" height="220" key="GridCell.Tab.1.bottom" timestamp="1578916736337">
+    <state width="1878" height="145" key="GridCell.Tab.0.right/0.23.1920.982@0.23.1920.982" timestamp="1578983364023" />
+    <state width="1878" height="145" key="GridCell.Tab.1.bottom" timestamp="1578983364025">
       <screen x="0" y="23" width="1920" height="982" />
     </state>
     <state width="1878" height="212" key="GridCell.Tab.1.bottom/0.23.1920.977@0.23.1920.977" timestamp="1578624861284" />
     <state width="1878" height="352" key="GridCell.Tab.1.bottom/0.23.1920.980@0.23.1920.980" timestamp="1577072794885" />
-    <state width="1878" height="220" key="GridCell.Tab.1.bottom/0.23.1920.982@0.23.1920.982" timestamp="1578916736337" />
-    <state width="1878" height="220" key="GridCell.Tab.1.center" timestamp="1578916736337">
+    <state width="1878" height="145" key="GridCell.Tab.1.bottom/0.23.1920.982@0.23.1920.982" timestamp="1578983364025" />
+    <state width="1878" height="145" key="GridCell.Tab.1.center" timestamp="1578983364024">
       <screen x="0" y="23" width="1920" height="982" />
     </state>
     <state width="1878" height="212" key="GridCell.Tab.1.center/0.23.1920.977@0.23.1920.977" timestamp="1578624861283" />
     <state width="1878" height="352" key="GridCell.Tab.1.center/0.23.1920.980@0.23.1920.980" timestamp="1577072794885" />
-    <state width="1878" height="220" key="GridCell.Tab.1.center/0.23.1920.982@0.23.1920.982" timestamp="1578916736337" />
-    <state width="1878" height="220" key="GridCell.Tab.1.left" timestamp="1578916736336">
+    <state width="1878" height="145" key="GridCell.Tab.1.center/0.23.1920.982@0.23.1920.982" timestamp="1578983364024" />
+    <state width="1878" height="145" key="GridCell.Tab.1.left" timestamp="1578983364024">
       <screen x="0" y="23" width="1920" height="982" />
     </state>
     <state width="1878" height="212" key="GridCell.Tab.1.left/0.23.1920.977@0.23.1920.977" timestamp="1578624861283" />
     <state width="1878" height="352" key="GridCell.Tab.1.left/0.23.1920.980@0.23.1920.980" timestamp="1577072794885" />
-    <state width="1878" height="220" key="GridCell.Tab.1.left/0.23.1920.982@0.23.1920.982" timestamp="1578916736336" />
-    <state width="1878" height="220" key="GridCell.Tab.1.right" timestamp="1578916736337">
+    <state width="1878" height="145" key="GridCell.Tab.1.left/0.23.1920.982@0.23.1920.982" timestamp="1578983364024" />
+    <state width="1878" height="145" key="GridCell.Tab.1.right" timestamp="1578983364024">
       <screen x="0" y="23" width="1920" height="982" />
     </state>
     <state width="1878" height="212" key="GridCell.Tab.1.right/0.23.1920.977@0.23.1920.977" timestamp="1578624861283" />
     <state width="1878" height="352" key="GridCell.Tab.1.right/0.23.1920.980@0.23.1920.980" timestamp="1577072794885" />
-    <state width="1878" height="220" key="GridCell.Tab.1.right/0.23.1920.982@0.23.1920.982" timestamp="1578916736337" />
-    <state x="794" y="229" key="RollbackChangesDialog" timestamp="1578104735401">
-      <screen x="0" y="23" width="1920" height="977" />
+    <state width="1878" height="145" key="GridCell.Tab.1.right/0.23.1920.982@0.23.1920.982" timestamp="1578983364024" />
+    <state x="794" y="230" key="RollbackChangesDialog" timestamp="1578924004375">
+      <screen x="0" y="23" width="1920" height="982" />
     </state>
     <state x="794" y="229" key="RollbackChangesDialog/0.23.1920.977@0.23.1920.977" timestamp="1578104735401" />
+    <state x="794" y="230" key="RollbackChangesDialog/0.23.1920.982@0.23.1920.982" timestamp="1578924004375" />
     <state x="469" y="152" key="SettingsEditor" timestamp="1576737720968">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
     <state x="469" y="152" key="SettingsEditor/0.23.1920.980@0.23.1920.980" timestamp="1576737720968" />
-    <state x="560" y="240" key="Vcs.Push.Dialog.v2" timestamp="1578273752155">
-      <screen x="0" y="23" width="1920" height="977" />
+    <state x="560" y="241" key="Vcs.Push.Dialog.v2" timestamp="1578918558396">
+      <screen x="0" y="23" width="1920" height="982" />
     </state>
     <state x="560" y="240" key="Vcs.Push.Dialog.v2/0.23.1920.977@0.23.1920.977" timestamp="1578273752155" />
     <state x="560" y="241" key="Vcs.Push.Dialog.v2/0.23.1920.980@0.23.1920.980" timestamp="1577071108137" />
+    <state x="560" y="241" key="Vcs.Push.Dialog.v2/0.23.1920.982@0.23.1920.982" timestamp="1578918558396" />
     <state x="639" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1576718931193">
       <screen x="0" y="23" width="1920" height="980" />
     </state>
     <state x="639" y="345" key="com.intellij.ide.util.TipDialog/0.23.1920.980@0.23.1920.980" timestamp="1576718931193" />
-    <state x="749" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577191478069">
-      <screen x="0" y="23" width="1920" height="977" />
+    <state x="749" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578924525104">
+      <screen x="0" y="23" width="1920" height="982" />
     </state>
     <state x="749" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1920.977@0.23.1920.977" timestamp="1577191478068" />
     <state x="749" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1920.980@0.23.1920.980" timestamp="1576488014887" />
+    <state x="749" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1920.982@0.23.1920.982" timestamp="1578924525104" />
     <state x="528" y="256" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1576405909212">
       <screen x="0" y="23" width="1920" height="980" />
     </state>

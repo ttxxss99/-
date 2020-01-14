@@ -1,8 +1,10 @@
 package com.bishe.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.bishe.model.Employee;
 import com.bishe.model.PayStructure;
 import com.bishe.service.PayStructureService;
+import com.utils.BeanUtils;
 import com.utils.PageBean;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,12 +76,12 @@ public class PayStructureController {
 
     @ApiOperation(value = "增加工资结构")
     @PostMapping(value = "/insert", consumes = "application/json")
-    public Object insert(@RequestBody JSONObject s) {
+    public Object insert(@RequestBody Map paramsMap) throws Exception {
         Map<String, Object> map = new HashMap<String, Object>();
-        PayStructure payStructure = s.getObject("data", PayStructure.class);
+        PayStructure payStructure = (PayStructure) BeanUtils.mapToObject(paramsMap, PayStructure.class);
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
         payStructure.setTime(new Date());
-        if (null==payStructure.getBasic()) {
+        if (null == payStructure.getBasic()) {
             map.put("data", "失败");
             return map;
         }

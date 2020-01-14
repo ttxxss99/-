@@ -51,9 +51,7 @@
         update employee
         set name = #{name,jdbcType=VARCHAR},
         tel = #{tel,jdbcType=VARCHAR},
-        time = #{time,jdbcType=TIMESTAMP},
         mark = #{mark,jdbcType=VARCHAR},
-        logic_del = #{logicDel,jdbcType=INTEGER},
         work_age = #{workAge,jdbcType=INTEGER}
         where id = #{id,jdbcType=INTEGER}
     </update>
