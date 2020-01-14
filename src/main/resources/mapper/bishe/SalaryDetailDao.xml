@@ -53,10 +53,10 @@
             SELECT LAST_INSERT_ID()
         </selectKey>
         insert into salary_detail (e_id, day, p_id,
-        time, fine, logic_del
+        time, fine
         )
         values (#{eId,jdbcType=INTEGER}, #{day,jdbcType=INTEGER}, #{pId,jdbcType=INTEGER},
-        #{time,jdbcType=TIMESTAMP}, #{fine,jdbcType=INTEGER}, #{logicDel,jdbcType=INTEGER}
+        #{time,jdbcType=TIMESTAMP}, #{fine,jdbcType=INTEGER}
         )
     </insert>
     <update id="updateByPrimaryKey" parameterType="com.bishe.model.SalaryDetail">
@@ -70,8 +70,7 @@
         day = #{day,jdbcType=INTEGER},
         p_id = #{pId,jdbcType=INTEGER},
         time = #{time,jdbcType=TIMESTAMP},
-        fine = #{fine,jdbcType=INTEGER},
-        logic_del = #{logicDel,jdbcType=INTEGER}
+        fine = #{fine,jdbcType=INTEGER}
         where id = #{id,jdbcType=INTEGER}
     </update>
     <select id="selectByPrimaryKey" parameterType="com.bishe.model.vo.SalaryDetailVo" resultMap="SalaryDetailVo">

@@ -38,9 +38,9 @@
             SELECT LAST_INSERT_ID()
         </selectKey>
         insert into employee (name, tel, time,
-        mark, logic_del, work_age)
+        mark, work_age)
         values (#{name,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP},
-        #{mark,jdbcType=VARCHAR}, #{logicDel,jdbcType=INTEGER}, #{workAge,jdbcType=INTEGER})
+        #{mark,jdbcType=VARCHAR}, #{workAge,jdbcType=INTEGER})
     </insert>
     <update id="updateByPrimaryKey" parameterType="com.bishe.model.Employee">
         <!--

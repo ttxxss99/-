@@ -32,9 +32,9 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into post (name, money, logic_del, 
+    insert into post (name, money,
       time)
-    values (#{name,jdbcType=VARCHAR}, #{money,jdbcType=INTEGER}, #{logicDel,jdbcType=INTEGER}, 
+    values (#{name,jdbcType=VARCHAR}, #{money,jdbcType=INTEGER},
       #{time,jdbcType=TIMESTAMP})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.bishe.model.Post">
@@ -46,7 +46,6 @@
     update post
     set name = #{name,jdbcType=VARCHAR},
       money = #{money,jdbcType=INTEGER},
-      logic_del = #{logicDel,jdbcType=INTEGER},
       time = #{time,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>

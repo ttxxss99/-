@@ -32,10 +32,8 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into pay_structure (basic, post_id, time, 
-      logic_del)
-    values (#{basic,jdbcType=INTEGER}, #{postId,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP}, 
-      #{logicDel,jdbcType=INTEGER})
+    insert into pay_structure (basic, post_id, time )
+    values (#{basic,jdbcType=INTEGER}, #{postId,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.bishe.model.PayStructure">
     <!--
@@ -46,8 +44,7 @@
     update pay_structure
     set basic = #{basic,jdbcType=INTEGER},
       post_id = #{postId,jdbcType=INTEGER},
-      time = #{time,jdbcType=TIMESTAMP},
-      logic_del = #{logicDel,jdbcType=INTEGER}
+      time = #{time,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">

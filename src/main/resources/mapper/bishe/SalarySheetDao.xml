@@ -35,10 +35,10 @@
             SELECT LAST_INSERT_ID()
         </selectKey>
         insert into salary_sheet (e_id, day, money,
-        p_s_id, time, logic_del
+        p_s_id, time
         )
         values (#{eId,jdbcType=INTEGER}, #{day,jdbcType=INTEGER}, #{money,jdbcType=INTEGER},
-        #{pSId,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP}, #{logicDel,jdbcType=INTEGER}
+        #{pSId,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP}
         )
     </insert>
     <update id="updateByPrimaryKey" parameterType="com.bishe.model.SalarySheet">
@@ -52,8 +52,7 @@
         day = #{day,jdbcType=INTEGER},
         money = #{money,jdbcType=INTEGER},
         p_s_id = #{pSId,jdbcType=INTEGER},
-        time = #{time,jdbcType=TIMESTAMP},
-        logic_del = #{logicDel,jdbcType=INTEGER}
+        time = #{time,jdbcType=TIMESTAMP}
         where id = #{id,jdbcType=INTEGER}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
