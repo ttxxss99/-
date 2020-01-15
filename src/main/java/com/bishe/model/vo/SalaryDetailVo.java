@@ -12,7 +12,15 @@ public class SalaryDetailVo {
 
    private Integer eId;
 
-   private Integer day;
+   private double day;
+
+   public double getDay() {
+      return day;
+   }
+
+   public void setDay(double day) {
+      this.day = day;
+   }
 
    private Integer pId;
 
@@ -27,8 +35,13 @@ public class SalaryDetailVo {
 
    private String pName;
 
+   public Integer getFine() {
+      return fine;
+   }
 
-
+   public void setFine(Integer fine) {
+      this.fine = fine;
+   }
 
    //以下属性是DO作用
    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")

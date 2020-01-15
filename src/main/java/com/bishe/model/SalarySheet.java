@@ -30,7 +30,7 @@ public class SalarySheet {
      *
      * @mbg.generated Fri Jan 10 10:54:28 CST 2020
      */
-    private Integer day;
+    private double day;
 
     /**
      *
@@ -125,7 +125,7 @@ public class SalarySheet {
      *
      * @mbg.generated Fri Jan 10 10:54:28 CST 2020
      */
-    public Integer getDay() {
+    public double getDay() {
         return day;
     }
 
@@ -137,7 +137,7 @@ public class SalarySheet {
      *
      * @mbg.generated Fri Jan 10 10:54:28 CST 2020
      */
-    public void setDay(Integer day) {
+    public void setDay(double day) {
         this.day = day;
     }
 

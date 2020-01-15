@@ -1,7 +1,6 @@
 package com.bishe.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.bishe.model.Employee;
 import com.bishe.model.SalaryDetail;
 import com.bishe.model.vo.SalaryDetailVo;
 import com.bishe.service.SalaryDetailService;
@@ -69,5 +68,25 @@ public class SalaryDetailController {
         map.put("data", pageData);
 
         return map;
+    }
+
+    @ApiOperation(value = "增加单个")
+    @PostMapping(value = "/insert", consumes = "application/json")
+    public Object insert(@RequestBody Map paramsMap) throws Exception {
+        Map<String, Object> map = new HashMap<String, Object>();
+        SalaryDetail salaryDetail = (SalaryDetail) com.utils.BeanUtils.mapToObject(paramsMap, SalaryDetail.class);
+        if (salaryDetail.getDay() == 0) {
+            map.put("data", "失败");
+            return map;
+        }
+        int n = salaryDetailService.insert(salaryDetail);
+
+        if (n > 0) {
+            map.put("data", "成功");
+            return map;
+        } else {
+            map.put("data", "失败");
+            return map;
+        }
     }
 }

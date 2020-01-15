@@ -9,7 +9,7 @@ public class SalaryDetail extends Employee {
 
     private Integer eId;
 
-    private Integer day;
+    private double day;
 
     private Integer pId;
 
@@ -36,11 +36,11 @@ public class SalaryDetail extends Employee {
         this.eId = eId;
     }
 
-    public Integer getDay() {
+    public double getDay() {
         return day;
     }
 
-    public void setDay(Integer day) {
+    public void setDay(double day) {
         this.day = day;
     }
 
