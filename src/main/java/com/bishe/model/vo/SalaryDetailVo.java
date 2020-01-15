@@ -12,6 +12,22 @@ public class SalaryDetailVo {
 
    private Integer eId;
 
+   public Integer geteId() {
+      return eId;
+   }
+
+   public void seteId(Integer eId) {
+      this.eId = eId;
+   }
+
+   public Integer getpId() {
+      return pId;
+   }
+
+   public void setpId(Integer pId) {
+      this.pId = pId;
+   }
+
    private double day;
 
    public double getDay() {
