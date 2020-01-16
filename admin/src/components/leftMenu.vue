@@ -26,8 +26,8 @@
 					<el-menu-item index="/article">
 						<i class="iconfont icon-article-edit"></i>写文章
 					</el-menu-item>
-					<el-menu-item index="/admin/article/list">
-						<i class="iconfont icon-article-manage"></i>文章列表
+					<el-menu-item index="/post">
+						<i class="iconfont icon-article-manage"></i>岗位
 					</el-menu-item>
 					<el-menu-item index="/admin/article/draft">
 						<i class="iconfont icon-drafts"></i>草稿箱
@@ -49,11 +49,11 @@
 						<i class="iconfont icon-config"></i>
 						<span slot="title">网站配置</span>
 					</template>
-					<el-menu-item index="/admin/webConfig">
-						<i class="iconfont icon-base-config"></i>基本配置
+					<el-menu-item index="/salaryDetail">
+						<i class="iconfont icon-base-config"></i>工资明细
 					</el-menu-item>
-					<el-menu-item index="/admin/webConfig/about">
-						<i class="iconfont icon-about"></i>关于我
+					<el-menu-item index="/payStructure">
+						<i class="iconfont icon-about"></i>工资结构
 					</el-menu-item>
 					<el-menu-item index="/admin/webConfig/resume">
 						<i class="iconfont icon-resume"></i>我的简历

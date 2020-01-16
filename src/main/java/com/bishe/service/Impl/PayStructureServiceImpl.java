@@ -3,6 +3,7 @@ package com.bishe.service.Impl;
 import com.bishe.dao.PayStructureDao;
 import com.bishe.model.Employee;
 import com.bishe.model.PayStructure;
+import com.bishe.model.vo.PayStructureVo;
 import com.bishe.service.PayStructureService;
 import com.github.pagehelper.PageHelper;
 import com.utils.PageBean;
@@ -33,11 +34,11 @@ public class PayStructureServiceImpl implements PayStructureService {
     }
 
     @Override
-    public PageBean<PayStructure> selectAll(int currentPage, int pageSize) {
+    public PageBean<PayStructureVo> selectAll(int currentPage, int pageSize) {
         PageHelper.startPage(currentPage, pageSize);
-        List<PayStructure> payStructures = payStructureDao.selectAll();
-        PageBean<PayStructure> pageData = new PageBean<>(currentPage, pageSize, payStructures.size());
-        pageData.setItems(payStructures);
+        List<PayStructureVo> payStructureVos = payStructureDao.selectAll();
+        PageBean<PayStructureVo> pageData = new PageBean<>(currentPage, pageSize, payStructureVos.size());
+        pageData.setItems(payStructureVos);
         return pageData;
     }
 

@@ -3,6 +3,7 @@ package com.bishe.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.bishe.model.Employee;
 import com.bishe.model.PayStructure;
+import com.bishe.model.vo.PayStructureVo;
 import com.bishe.service.PayStructureService;
 import com.utils.BeanUtils;
 import com.utils.PageBean;
@@ -28,7 +29,7 @@ public class PayStructureController {
     public Object selectAll(int currentPage, int pageSize) {
         Map<String, Object> map = new HashMap<String, Object>();
 
-        PageBean<PayStructure> pageData = payStructureService.selectAll(currentPage, pageSize);
+        PageBean<PayStructureVo> pageData = payStructureService.selectAll(currentPage, pageSize);
 
         map.put("data", pageData);
 
@@ -37,9 +38,9 @@ public class PayStructureController {
 
     @ApiOperation(value = "修改工资结构")
     @PostMapping("/update")
-    public Object update(@RequestBody JSONObject jsonObject) {
+    public Object update(@RequestBody Map paramsMap) throws Exception {
         Map<String, Object> map = new HashMap<String, Object>();
-        PayStructure payStructure = jsonObject.getObject("data", PayStructure.class);
+        PayStructure payStructure = (PayStructure) BeanUtils.mapToObject(paramsMap, PayStructure.class);
         if (null == payStructure.getBasic()) {
             map.put("data", "失败");
             return map;

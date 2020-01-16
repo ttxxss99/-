@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.bishe.model.Post;
 import com.bishe.service.PostService;
+import com.utils.BeanUtils;
 import com.utils.PageBean;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class PostServiceController {
     public Object selectAll(int currentPage, int pageSize) {
         Map<String, Object> map = new HashMap<String, Object>();
 
-        PageBean<Post> pageData = postService.selectAll(currentPage,pageSize);
+        PageBean<Post> pageData = postService.selectAll(currentPage, pageSize);
 
         map.put("data", pageData);
 
@@ -36,9 +37,9 @@ public class PostServiceController {
 
     @ApiOperation(value = "修改单个岗位")
     @PostMapping(value = "/update", consumes = "application/json")
-    public Object update(@RequestBody JSONObject s) {
+    public Object update(@RequestBody Map paramsMap) throws Exception {
         Map<String, Object> map = new HashMap<String, Object>();
-        Post post = s.getObject("data", Post.class);
+        Post post = (Post) BeanUtils.mapToObject(paramsMap, Post.class);
         if (null == post.getName()) {
             map.put("data", "失败");
             return map;
@@ -76,9 +77,9 @@ public class PostServiceController {
 
     @ApiOperation(value = "增加岗位")
     @PostMapping(value = "/insert", consumes = "application/json")
-    public Object insert(@RequestBody JSONObject s) {
+    public Object insert(@RequestBody Map paramsMap) throws Exception {
         Map<String, Object> map = new HashMap<String, Object>();
-        Post post = s.getObject("data", Post.class);
+        Post post = (Post) BeanUtils.mapToObject(paramsMap, Post.class);
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
         post.setTime(new Date());
         if (post.getName() == null) {

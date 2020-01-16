@@ -43,6 +43,14 @@ public class SalaryDetailVo {
    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
    private Date time;
 
+   public Date getTime() {
+      return time;
+   }
+
+   public void setTime(Date time) {
+      this.time = time;
+   }
+
    private Integer fine;
 
    private Integer logicDel;

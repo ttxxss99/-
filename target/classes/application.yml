@@ -1,0 +1,18 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bishe?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+# Mybatis
+mybatis:
+  typeAliasesPackage: com.bishe.model
+  mapperLocations: classpath:mapper/bishe/*.xml
+#bybatis分页插件配置
+pagehelper:
+  helper-dialect: mysql  #数据库
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

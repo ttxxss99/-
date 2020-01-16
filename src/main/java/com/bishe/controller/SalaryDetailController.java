@@ -11,6 +11,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,16 +25,16 @@ public class SalaryDetailController {
 
     @ApiOperation(value = "修改明细")
     @PostMapping(value = "/update", consumes = "application/json")
-    public Object update(@RequestBody JSONObject s) {
+    public Object update(@RequestBody Map paramsMap) throws Exception {
         Map<String, Object> map = new HashMap<String, Object>();
-        SalaryDetailVo salaryDetailVo = s.getObject("data", SalaryDetailVo.class);
+        SalaryDetailVo salaryDetailVo = (SalaryDetailVo) com.utils.BeanUtils.mapToObject(paramsMap, SalaryDetailVo.class);
         SalaryDetail salaryDetail = new SalaryDetail();
+        salaryDetailVo.setTime(new Date());
+        BeanUtils.copyProperties(salaryDetailVo, salaryDetail);
 
-        BeanUtils.copyProperties(salaryDetailVo,salaryDetail);
+        LoggerUtil.error(this.getClass().getName(), "update");
 
-        LoggerUtil.error(this.getClass().getName(),"update");
-
-        if (null == salaryDetail.getName()) {
+        if (null == salaryDetail) {
             map.put("data", "失败");
             return map;
         }
@@ -54,7 +55,7 @@ public class SalaryDetailController {
         SalaryDetailVo salaryDetailVo = data.getObject("data", SalaryDetailVo.class);
         List<SalaryDetailVo> salaryDetailVos = salaryDetailService.selectByPrimaryKey(salaryDetailVo);
         map.put("data", salaryDetailVos);
-        LoggerUtil.error(this.getClass().getName(),"selectByName");
+        LoggerUtil.error(this.getClass().getName(), "selectByName");
         return map;
     }
 
@@ -63,7 +64,7 @@ public class SalaryDetailController {
     public Object selectAll(int currentPage, int pageSize) {
         Map<String, Object> map = new HashMap<String, Object>();
 
-        PageBean<SalaryDetailVo> pageData = salaryDetailService.selectAll(currentPage,pageSize);
+        PageBean<SalaryDetailVo> pageData = salaryDetailService.selectAll(currentPage, pageSize);
 
         map.put("data", pageData);
 
