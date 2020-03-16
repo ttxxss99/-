@@ -1,6 +1,7 @@
 package com.bishe.service;
 
 import com.bishe.model.SalarySheet;
+import com.bishe.model.vo.SalarySheetVo;
 import com.utils.PageBean;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public interface SalarySheetService {
 
     SalarySheet selectByPrimaryKey(Integer id);
 
-    PageBean<SalarySheet> selectAll(int currentPage, int pageSize);
+    PageBean<SalarySheetVo> selectAll(int currentPage, int pageSize);
 
     int updateByPrimaryKey(SalarySheet salarySheet);
 }

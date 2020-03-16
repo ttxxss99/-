@@ -3,6 +3,7 @@ package com.bishe.service.Impl;
 import com.bishe.dao.SalarySheetDao;
 import com.bishe.model.Employee;
 import com.bishe.model.SalarySheet;
+import com.bishe.model.vo.SalarySheetVo;
 import com.bishe.service.SalarySheetService;
 import com.github.pagehelper.PageHelper;
 import com.utils.PageBean;
@@ -33,10 +34,10 @@ public class SalarySheetServiceImpl implements SalarySheetService {
     }
 
     @Override
-    public PageBean<SalarySheet> selectAll(int currentPage, int pageSize) {
+    public PageBean<SalarySheetVo> selectAll(int currentPage, int pageSize) {
         PageHelper.startPage(currentPage, pageSize);
-        List<SalarySheet> salarySheets = salarySheetDao.selectAll();
-        PageBean<SalarySheet> pageData = new PageBean<>(currentPage, pageSize, salarySheets.size());
+        List<SalarySheetVo> salarySheets = salarySheetDao.selectAll();
+        PageBean<SalarySheetVo> pageData = new PageBean<>(currentPage, pageSize, salarySheets.size());
         pageData.setItems(salarySheets);
         return pageData;
     }

@@ -1,6 +1,6 @@
 package com.bishe.controller;
 
-import com.bishe.model.SalarySheet;
+import com.bishe.model.vo.SalarySheetVo;
 import com.bishe.service.SalarySheetService;
 import com.utils.PageBean;
 import io.swagger.annotations.ApiOperation;
@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/SalarySheet")
+@RequestMapping("/salarySheet")
 public class SalarySheetController {
 
     @Autowired
@@ -22,7 +22,7 @@ public class SalarySheetController {
     public Object selectAll(int currentPage, int pageSize) {
         Map<String, Object> map = new HashMap<String, Object>();
 
-        PageBean<SalarySheet> pageData = salarySheetService.selectAll(currentPage,pageSize);
+        PageBean<SalarySheetVo> pageData = salarySheetService.selectAll(currentPage,pageSize);
 
         map.put("data", pageData);
 

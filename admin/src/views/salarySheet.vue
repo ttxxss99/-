@@ -60,19 +60,16 @@
     <el-dialog :title="modelTtile" :visible.sync="personModelShow">
       <el-form :model="personObj">
         <el-form-item label="姓名" label-width="80px">
-          <el-input v-model="personObj.ename"></el-input>
+          <el-input v-model="personObj.name"></el-input>
         </el-form-item>
-        <el-form-item label="岗位" label-width="80px">
-          <el-input v-model="personObj.pname"></el-input>
+        <el-form-item label="电话" label-width="80px">
+          <el-input v-model="personObj.tel"></el-input>
         </el-form-item>
-        <el-form-item label="天数" label-width="80px">
-          <el-input v-model="personObj.day"></el-input>
+        <el-form-item label="备注" label-width="80px">
+          <el-input v-model="personObj.mark"></el-input>
         </el-form-item>
-        <!--<el-form-item label="时间" label-width="80px">-->
-          <!--<el-input v-model="personObj.time"></el-input>-->
-        <!--</el-form-item>-->
-        <el-form-item label="罚款" label-width="80px">
-          <el-input v-model="personObj.fine"></el-input>
+        <el-form-item label="工龄" label-width="80px">
+          <el-input v-model="personObj.workAge"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -85,7 +82,7 @@
 
 <script>
   export default {
-    name: "salaryDetail",
+    name: "salarySheet",
     data() {
       return {
         personModelShow: false,
@@ -93,12 +90,10 @@
         isEdit: false,
 
         personObj: {
-          ename: '',
-          pname: '',
-          Day: '',
-          fine: '',
-          pId: '',
-          eId: ''
+          name: '',
+          tel: '',
+          mark: '',
+          workAge: ''
         },
         pageSize: 10, //每页显示9条数据
         pageTotal: 0,
@@ -106,24 +101,23 @@
         tableHeader: [
           {
             label: '姓名',
-            prop: 'ename'
+            prop: 'name'
           },
           {
-            label: '职位',
-            prop: 'pname'
-          },
-          {
-            label: '天数',
+            label: '总天数',
             prop: 'day'
           },
           {
-            label: '时间',
+            label: '总工资',
+            prop: 'money'
+          },
+          {
+            label: '创建时间',
             prop: 'time'
           },
-
           {
-            label: '罚款',
-            prop: 'fine'
+            label: '工资结构',
+            prop: 'PSId'
           }
           // ,
           // {
@@ -142,7 +136,7 @@
       tableDataAjax() {
         this.$axios
           .get(
-            '/salaryDetail/selectAll?currentPage=' +
+            '/salarySheet/selectAll?currentPage=' +
             this.pageIndex +
             '&pageSize=' +
             this.pageSize
@@ -160,9 +154,9 @@
       showModel(type, row) {
         this.personModelShow = true
         if (type === 'add') {
-          this.modelTtile = '增加工资明细'
+          this.modelTtile = '增加员工'
         } else if (type === 'update') {
-          this.modelTtile = '修改工资明细'
+          this.modelTtile = '修改员工信息'
           this.isEdit = true
           for (var key in this.personObj) {
             this.personObj[key] = row[key]
@@ -175,7 +169,7 @@
         console.log(this.personObj)
         if (this.isEdit) {
           this.$axios
-            .post('/salaryDetail/update', this.personObj)
+            .post('/SalarySheet/update', this.personObj)
             .then(res => {
               if (res.data) {
                 this.$message.info('修改成功')
@@ -190,7 +184,7 @@
             })
         } else {
           this.$axios
-            .post('/salaryDetail/insert', this.personObj)
+            .post('/SalarySheet/insert', this.personObj)
             .then(res => {
               if (res.data) {
                 this.$message.info('添加成功')
@@ -211,7 +205,7 @@
       //删除
       handleDelete(index, row) {
         this.$axios
-          .post('/salaryDetail/delete', [row.id])
+          .post('/SalarySheet/delete', [row.id])
           .then(res => {
             if (res.data) {
               this.$message.info('删除成功')
@@ -303,3 +297,4 @@
     bottom: 0;
   }
 </style>
+

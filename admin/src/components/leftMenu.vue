@@ -47,7 +47,7 @@
 				<el-submenu index="4">
 					<template slot="title">
 						<i class="iconfont icon-config"></i>
-						<span slot="title">网站配置</span>
+						<span slot="title">工资管理</span>
 					</template>
 					<el-menu-item index="/salaryDetail">
 						<i class="iconfont icon-base-config"></i>工资明细
@@ -55,8 +55,8 @@
 					<el-menu-item index="/payStructure">
 						<i class="iconfont icon-about"></i>工资结构
 					</el-menu-item>
-					<el-menu-item index="/admin/webConfig/resume">
-						<i class="iconfont icon-resume"></i>我的简历
+					<el-menu-item index="/salarySheet">
+						<i class="iconfont icon-resume"></i>工资单
 					</el-menu-item>
 					<el-menu-item index="/admin/webConfig/friends">
 						<i class="iconfont icon-friends-link"></i>友链管理

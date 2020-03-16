@@ -9,7 +9,7 @@ import article from '@/views/articleList'
 import post from '@/views/post'
 import salaryDetail from '@/views/salaryDetail'
 import payStructure from '@/views/payStructure'
-
+import salarySheet  from '@/views/salarySheet'
 Vue.use(Router)
 
 export default new Router({
@@ -34,6 +34,11 @@ export default new Router({
           path: '/salaryDetail',
           name: 'salaryDetail',
           component: salaryDetail,
+        },
+        {
+          path: '/salarySheet',
+          name: 'salarySheet',
+          component: salarySheet,
         },
         {
           path: '/payStructure',

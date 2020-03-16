@@ -76,6 +76,7 @@ public class SalaryDetailController {
     public Object insert(@RequestBody Map paramsMap) throws Exception {
         Map<String, Object> map = new HashMap<String, Object>();
         SalaryDetail salaryDetail = (SalaryDetail) com.utils.BeanUtils.mapToObject(paramsMap, SalaryDetail.class);
+        salaryDetail.setTime(new Date());
         if (salaryDetail.getDay() == 0) {
             map.put("data", "失败");
             return map;
