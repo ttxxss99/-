@@ -4,11 +4,19 @@
     <div class="btn-items flex">
       <div class="search">
         <label for="userName">用户名称：</label>
-        <el-input size="mini" type="text" id="userName" name="userName" placeholder="请输入用户名"></el-input>
+        <el-input size="mini" type="text" id="userName" name="userName" v-model="input" placeholder="请输入用户名"></el-input>
       </div>
       <el-button type="primary" size="mini" icon="el-icon-search">搜索</el-button>
       <el-button size="mini">重置</el-button>
       <el-button size="mini" icon="el-icon-arrow-down">展开</el-button>
+      <div class="block">
+        <span class="demonstration">用户名称：</span>
+        <el-cascader
+          v-model="value"
+          :options="options"
+          :props="{ expandTrigger: 'hover' }"
+          @change="handleChange"></el-cascader>
+      </div>
     </div>
     <div class="btn-items">
       <el-button type="primary" size="mini" icon="el-icon-plus" @click="showModel('add')">添加用户</el-button>
@@ -96,6 +104,7 @@
         pageSize: 10, //每页显示9条数据
         pageTotal: 0,
         pageIndex: 1,
+        input:'',
         tableHeader: [
           {
             label: '岗位名',
@@ -216,6 +225,10 @@
 </script>
 
 <style lang='less' scoped>
+
+  @import url("//unpkg.com/element-ui@2.13.1/lib/theme-chalk/index.css");
+
+
   label {
     white-space: nowrap;
   }
