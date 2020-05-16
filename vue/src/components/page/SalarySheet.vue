@@ -3,7 +3,7 @@
 		<div class="crumbs">
 			<el-breadcrumb separator="/">
 				<el-breadcrumb-item>
-					<i class="el-icon-lx-cascades"></i> 基础表格
+					<i class="el-icon-lx-cascades"></i> 工资汇总
 				</el-breadcrumb-item>
 			</el-breadcrumb>
 		</div>
@@ -20,27 +20,29 @@
 			<el-table :data="tableData" border class="table" ref="multipleTable" header-cell-class-name="table-header"
 			 @selection-change="handleSelectionChange">
 				<el-table-column type="selection" width="55" align="center"></el-table-column>
-				<el-table-column prop="id" label="ID" width="55" align="center"></el-table-column>
+				<!-- <el-table-column prop="id" label="ID" width="55" align="center"></el-table-column> -->
 				<el-table-column prop="name" label="用户名"></el-table-column>
 				<el-table-column label="账户余额">
 					<template slot-scope="scope">￥{{scope.row.money}}</template>
 				</el-table-column>
-				<el-table-column label="头像(查看大图)" align="center">
+				<!-- <el-table-column label="头像(查看大图)" align="center">
 					<template slot-scope="scope">
 						<el-image class="table-td-thumb" :src="scope.row.thumb" :preview-src-list="[scope.row.thumb]"></el-image>
 					</template>
-				</el-table-column>
-				<el-table-column prop="address" label="地址"></el-table-column>
-				<el-table-column label="状态" align="center">
+				</el-table-column> -->
+				<el-table-column prop="day" label="总天数"></el-table-column>
+				<!-- <el-table-column label="状态" align="center">
 					<template slot-scope="scope">
 						<el-tag :type="scope.row.state==='成功'?'success':(scope.row.state==='失败'?'danger':'')">{{scope.row.state}}</el-tag>
 					</template>
-				</el-table-column>
+				</el-table-column> -->
 
-				<el-table-column prop="date" label="注册时间"></el-table-column>
+				<el-table-column prop="time" label="注册时间"></el-table-column>
 				<el-table-column label="操作" width="180" align="center">
 					<template slot-scope="scope">
-						<el-button type="text" icon="el-icon-edit" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+						<!-- <el-button type="text" icon="el-icon-edit" @click="handleEdit(scope.$index, scope.row)">详情</el-button> -->
+						<!-- 跳转到详情页  并且带上id -->
+						<el-button type="text" @click="handleEdit(scope.$index, scope.row)">详情</el-button>
 						<el-button type="text" icon="el-icon-delete" class="red" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
 					</template>
 				</el-table-column>
@@ -111,7 +113,7 @@
 
 				this.$axios
 					.get(
-						'/post/selectAll?currentPage=' +
+						'/salarySheet/selectAll?currentPage=' +
 						this.query.pageIndex +
 						'&pageSize=' +
 						this.query.pageSize
@@ -161,9 +163,18 @@
 			},
 			// 编辑操作
 			handleEdit(index, row) {
-				this.idx = index;
-				this.form = row;
-				this.editVisible = true;
+				// this.idx = index;
+				// this.form = row;
+				// this.editVisible = true;
+				console.log(row)
+				this.$router.push({
+					path: './SalaryDetail',
+					query:{
+						eId:row.eId
+					}
+				})
+				
+				
 			},
 			// 保存编辑
 			saveEdit() {

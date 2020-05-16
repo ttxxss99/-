@@ -11,10 +11,10 @@
 			<div class="handle-box">
 				<el-button type="danger" icon="el-icon-delete" class="handle-del mr10" @click="delAllSelection">批量删除</el-button>
 				<el-button type="primary" icon="el-icon-plus" class="handle-del mr10" @click="showModel('add')">增加</el-button>
-				<el-select v-model="query.address" placeholder="地址" class="handle-select mr10">
+				<!-- <el-select v-model="query.address" placeholder="地址" class="handle-select mr10">
 					<el-option key="1" label="广东省" value="广东省"></el-option>
 					<el-option key="2" label="湖南省" value="湖南省"></el-option>
-				</el-select>
+				</el-select> -->
 				<el-input v-model="form.name" placeholder="用户名" class="handle-input mr10"></el-input>
 				<el-button type="primary" icon="el-icon-search" @click="handleSearch">搜索</el-button>
 			</div>
@@ -84,7 +84,7 @@
 		data() {
 			return {
 				query: {
-					address: '',
+					// address: '',
 					name: '',
 					pageIndex: 1,
 					pageSize: 10
@@ -136,7 +136,6 @@
 							console.log(err)
 						})
 				}else{
-					debugger
 					console.log(this.form)
 					this.$axios
 						.post(
@@ -192,13 +191,26 @@
 			},
 			delAllSelection() {
 				const length = this.multipleSelection.length;
-				let str = '';
-				this.delList = this.delList.concat(this.multipleSelection);
+				// this.delList = this.delList.concat(this.multipleSelection);
+				
 				for (let i = 0; i < length; i++) {
-					str += this.multipleSelection[i].name + ' ';
+					// str += this.multipleSelection[i].name + ' ';
+					this.delList = this.delList.concat(this.multipleSelection[i].id);
 				}
-				this.$message.error(`删除了${str}`);
+				this.$axios
+					.post('/employee/delete', this.delList)
+					.then(res => {
+						if (res.data) {
+							this.$message.success('删除成功');
+							// this.tableData.splice(index, 1);
+							this.getData()
+						}
+					})
+					.catch(err => {
+						console.log(err)
+					})
 				this.multipleSelection = [];
+				this.delList = [];
 			},
 			//添加用户
 			showModel(type, row) {
@@ -237,8 +249,6 @@
 								this.isEdit = false
 								this.personModelShow = false
 							}
-
-
 						})
 						.catch(err => {
 							console.log(err)

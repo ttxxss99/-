@@ -10,10 +10,7 @@
 		<div class="container">
 			<div class="handle-box">
 				<el-button type="primary" icon="el-icon-delete" class="handle-del mr10" @click="delAllSelection">批量删除</el-button>
-				<el-select v-model="query.address" placeholder="地址" class="handle-select mr10">
-					<el-option key="1" label="广东省" value="广东省"></el-option>
-					<el-option key="2" label="湖南省" value="湖南省"></el-option>
-				</el-select>
+				
 				<el-input v-model="query.name" placeholder="用户名" class="handle-input mr10"></el-input>
 				<el-button type="primary" icon="el-icon-search" @click="handleSearch">搜索</el-button>
 			</div>
@@ -21,23 +18,25 @@
 			 @selection-change="handleSelectionChange">
 				<el-table-column type="selection" width="55" align="center"></el-table-column>
 				<el-table-column prop="id" label="ID" width="55" align="center"></el-table-column>
-				<el-table-column prop="name" label="用户名"></el-table-column>
-				<el-table-column label="账户余额">
+				<el-table-column prop="ename" label="用户名"></el-table-column>
+				<el-table-column prop="pname" label="地点"></el-table-column>
+				<!-- <el-table-column label="账户余额">
 					<template slot-scope="scope">￥{{scope.row.money}}</template>
-				</el-table-column>
-				<el-table-column label="头像(查看大图)" align="center">
+				</el-table-column> -->
+				<!-- <el-table-column label="头像(查看大图)" align="center">
 					<template slot-scope="scope">
 						<el-image class="table-td-thumb" :src="scope.row.thumb" :preview-src-list="[scope.row.thumb]"></el-image>
 					</template>
-				</el-table-column>
-				<el-table-column prop="address" label="地址"></el-table-column>
-				<el-table-column label="状态" align="center">
+				</el-table-column> -->
+				<el-table-column prop="day" label="天数"></el-table-column>
+				<!-- <el-table-column label="状态" align="center">
 					<template slot-scope="scope">
 						<el-tag :type="scope.row.state==='成功'?'success':(scope.row.state==='失败'?'danger':'')">{{scope.row.state}}</el-tag>
 					</template>
-				</el-table-column>
+				</el-table-column> -->
 
-				<el-table-column prop="date" label="注册时间"></el-table-column>
+				<el-table-column prop="time" label="注册时间"></el-table-column>
+				<el-table-column prop="fine" label="借款"></el-table-column>
 				<el-table-column label="操作" width="180" align="center">
 					<template slot-scope="scope">
 						<el-button type="text" icon="el-icon-edit" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
@@ -53,12 +52,34 @@
 
 		<!-- 编辑弹出框 -->
 		<el-dialog title="编辑" :visible.sync="editVisible" width="30%">
-			<el-form ref="form" :model="form" label-width="70px">
-				<el-form-item label="用户名">
-					<el-input v-model="form.name"></el-input>
+			<el-form :model="form">
+				<el-form-item label="姓名" label-width="80px">
+					<div class="block">
+					  <el-cascader
+					    v-model="form.ename"
+					    :options="options"
+					    :props="{ expandTrigger: 'hover' }"
+					    ></el-cascader><!-- @change="handleChange" -->
+					</div>
 				</el-form-item>
-				<el-form-item label="地址">
-					<el-input v-model="form.address"></el-input>
+				<el-form-item label="地点" label-width="80px">
+					<div class="block">
+					  <el-cascader
+					    v-model="form.pname"
+					    :options="options"
+					    :props="{ expandTrigger: 'hover' }"
+					    ></el-cascader>
+					</div>
+				</el-form-item>
+				<el-form-item label="天数" label-width="80px">
+					<!-- <el-input v-model="form.workAge"></el-input> -->
+					<el-select v-model="form.day" placeholder="天数" class="handle-select mr10">
+						<el-option key="1" label="1" value="1"></el-option>
+						<el-option key="2" label="0.5" value="0.5"></el-option>
+					</el-select>
+				</el-form-item>
+				<el-form-item label="借款" label-width="80px">
+					<el-input v-model="form.tel"></el-input>
 				</el-form-item>
 			</el-form>
 			<span slot="footer" class="dialog-footer">
@@ -94,10 +115,40 @@
 				pageTotal: 0,
 				form: {},
 				idx: -1,
-				id: -1
+				id: -1,
+				object:{
+					id:this.$route.params.id
+				},
+				
+				value: [],
+				        options: [{
+				          value: 'employees',
+				          label: '员工',
+				          children: [{
+				            value: 'shejiyuanze',
+				            label: '设计原则'
+				          }, {
+				            value: 'daohang',
+				            label: '导航',
+				          }]
+				        }, {
+				          value: 'place',
+				          label: '地点',
+				          children: [{
+				            value: 'axure',
+				            label: 'Axure Components'
+				          }, {
+				            value: 'sketch',
+				            label: 'Sketch Templates'
+				          }, {
+				            value: 'jiaohu',
+				            label: '组件交互文档'
+				          }]
+				        }]
 			};
 		},
-		created() {
+		created(e) {
+			
 			this.getData();
 		},
 		methods: {
@@ -108,16 +159,17 @@
 				//     this.tableData = res.list;
 				//     this.pageTotal = res.pageTotal || 50;
 				// });
-
 				this.$axios
-					.get(
-						'/post/selectAll?currentPage=' +
+					.post(
+						'/salaryDetail/selectByName?currentPage=' +
 						this.query.pageIndex +
 						'&pageSize=' +
-						this.query.pageSize
+						this.query.pageSize,
+						this.$route.query//参数
 					)
 					.then(res => {
 						console.log(res);
+						console.log(this.$route.query);
 						this.tableData = res.data.data.items;
 						this.pageTotal = res.data.data.totalNum || 50;
 					})

@@ -86,8 +86,14 @@ public class SalaryDetailServiceImpl implements SalaryDetailService {
     }
 
     @Override
-    public List<SalaryDetailVo> selectByPrimaryKey(SalaryDetailVo salaryDetailVo) {
-        return salaryDetailDao.selectByPrimaryKey(salaryDetailVo);
+    public PageBean<SalaryDetailVo> selectByPrimaryKey(SalaryDetailVo salaryDetailVo,int currentPage, int pageSize) {
+        int i =  salaryDetailDao.selectByPrimaryKey(salaryDetailVo).size();
+        PageHelper.startPage(currentPage, pageSize);
+        List<SalaryDetailVo> salaryDetailVos = salaryDetailDao.selectByPrimaryKey(salaryDetailVo);
+        PageBean<SalaryDetailVo> pageData = new PageBean<>(currentPage, pageSize, salaryDetailVos.size());
+        pageData.setItems(salaryDetailVos);
+        pageData.setTotalNum(i);
+        return pageData;
     }
 
     @Override

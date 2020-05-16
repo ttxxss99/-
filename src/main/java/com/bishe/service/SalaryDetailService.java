@@ -13,7 +13,7 @@ public interface SalaryDetailService {
 
     int insert(SalaryDetail salaryDetail) throws InvocationTargetException, IllegalAccessException;
 
-    List<SalaryDetailVo> selectByPrimaryKey(SalaryDetailVo salaryDetailVo);
+    PageBean<SalaryDetailVo> selectByPrimaryKey(SalaryDetailVo salaryDetailVo,int currentPage, int pageSize);
 
     PageBean<SalaryDetailVo> selectAll(int currentPage, int pageSize);
 

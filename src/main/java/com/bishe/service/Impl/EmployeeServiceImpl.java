@@ -29,11 +29,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public PageBean<Employee> selectByPrimaryKey(Employee employee,int currentPage, int pageSize) {
+        int i =  employeeDao.selectByPrimaryKey(employee).size();
         PageHelper.startPage(currentPage, pageSize);
         List<Employee> employees = employeeDao.selectByPrimaryKey(employee);
         PageBean<Employee> pageData = new PageBean<>(currentPage, pageSize, employees.size());
         pageData.setItems(employees);
-        pageData.setTotalNum(employees.size());
+        pageData.setTotalNum(i);
         return pageData;
     }
 
