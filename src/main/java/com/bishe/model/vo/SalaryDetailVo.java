@@ -30,6 +30,22 @@ public class SalaryDetailVo {
 
    private double day;
 
+   public String geteName() {
+      return eName;
+   }
+
+   public void seteName(String eName) {
+      this.eName = eName;
+   }
+
+   public String getpName() {
+      return pName;
+   }
+
+   public void setpName(String pName) {
+      this.pName = pName;
+   }
+
    public double getDay() {
       return day;
    }
@@ -68,10 +84,25 @@ public class SalaryDetailVo {
    }
 
    //以下属性是DO作用
-   @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+   @JsonFormat(pattern="yyyy-MM-dd")
    private Date beginTime;
 
-   @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+   @JsonFormat(pattern="yyyy-MM-dd")
    private Date endTime;
 
+   public Date getBeginTime() {
+      return beginTime;
+   }
+
+   public void setBeginTime(Date beginTime) {
+      this.beginTime = beginTime;
+   }
+
+   public Date getEndTime() {
+      return endTime;
+   }
+
+   public void setEndTime(Date endTime) {
+      this.endTime = endTime;
+   }
 }

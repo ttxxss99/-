@@ -2,6 +2,7 @@ package com.bishe.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.bishe.model.Employee;
 import com.bishe.model.Post;
 import com.bishe.service.PostService;
 import com.utils.BeanUtils;
@@ -24,11 +25,11 @@ public class PostServiceController {
     PostService postService;
 
     @ApiOperation(value = "获取岗位列表")
-    @GetMapping("/selectAll")
-    public Object selectAll(int currentPage, int pageSize) {
+    @PostMapping("/selectAll")
+    public Object selectAll(@RequestBody Map paramsMap,int currentPage, int pageSize) throws Exception {
         Map<String, Object> map = new HashMap<String, Object>();
-
-        PageBean<Post> pageData = postService.selectAll(currentPage, pageSize);
+        Post post = (Post) BeanUtils.mapToObject(paramsMap, Post.class);
+        PageBean<Post> pageData = postService.selectAll(post,currentPage, pageSize);
 
         map.put("data", pageData);
 

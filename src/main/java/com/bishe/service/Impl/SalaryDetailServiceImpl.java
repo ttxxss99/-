@@ -35,7 +35,7 @@ public class SalaryDetailServiceImpl implements SalaryDetailService {
     PayStructureDao payStructureDao;
 
     private static Map workAgeMap = new HashMap<Integer,Integer>(){{
-        put(0,500);put(1,1000);put(2,3000);put(3,5000);put(4,7000);put(5,10000);
+        put(0,500);put(1,1000);put(2,3000);put(3,5000);put(4,7000);put(5,10000);put(12,10000);
     }};
 
     @Override
@@ -50,7 +50,7 @@ public class SalaryDetailServiceImpl implements SalaryDetailService {
         salaryDetail.setTime(new Date());
         int i = salaryDetailDao.insert(salaryDetail);
         SalarySheet salarySheet1 = salarySheetDao.selectByPrimaryKey(salaryDetail.geteId());
-        Post post = postDao.selectByPrimaryKey(salaryDetail.getpId());
+        Post post = postDao.selectById(salaryDetail.getpId());
         if(null==salarySheet1){
 
             Employee employee =   new Employee();

@@ -30,20 +30,26 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Post selectByPrimaryKey(Integer id) {
-        return postDao.selectByPrimaryKey(id);
+        return postDao.selectById(id);
     }
 
     @Override
-    public PageBean<Post> selectAll(int currentPage, int pageSize) {
+    public PageBean<Post> selectAll(Post post,int currentPage, int pageSize) {
+        int i =  postDao.selectByPrimaryKey(post).size();
         PageHelper.startPage(currentPage, pageSize);
-        List<Post> posts = postDao.selectAll();
+        List<Post> posts = postDao.selectByPrimaryKey(post);
         PageBean<Post> pageData = new PageBean<>(currentPage, pageSize, posts.size());
         pageData.setItems(posts);
+        pageData.setTotalNum(i);
         return pageData;
     }
 
     @Override
     public int updateByPrimaryKey(Post post) {
         return postDao.updateByPrimaryKey(post);
+    }
+    @Override
+    public List<Post> select(){
+        return postDao.select();
     }
 }

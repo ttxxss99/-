@@ -12,7 +12,9 @@ public interface PostService {
 
     Post selectByPrimaryKey(Integer id);
 
-    PageBean<Post> selectAll(int currentPage, int pageSize);
+    PageBean<Post> selectAll(Post post,int currentPage, int pageSize);
 
     int updateByPrimaryKey(Post record);
+
+    List<Post> select();
 }

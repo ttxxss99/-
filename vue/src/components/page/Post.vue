@@ -10,11 +10,11 @@
 		<div class="container">
 			<div class="handle-box">
 				<el-button type="primary" icon="el-icon-delete" class="handle-del mr10" @click="delAllSelection">批量删除</el-button>
-				<el-select v-model="query.address" placeholder="地址" class="handle-select mr10">
+				<!-- <el-select v-model="query.address" placeholder="地址" class="handle-select mr10">
 					<el-option key="1" label="广东省" value="广东省"></el-option>
 					<el-option key="2" label="湖南省" value="湖南省"></el-option>
-				</el-select>
-				<el-input v-model="query.name" placeholder="用户名" class="handle-input mr10"></el-input>
+				</el-select> -->
+				<el-input v-model="form.name" placeholder="地点" class="handle-input mr10"></el-input>
 				<el-button type="primary" icon="el-icon-search" @click="handleSearch">搜索</el-button>
 			</div>
 			<el-table :data="tableData" border class="table" ref="multipleTable" header-cell-class-name="table-header"
@@ -108,11 +108,11 @@
 				// });
 
 				this.$axios
-					.get(
+					.post(
 						'/post/selectAll?currentPage=' +
 						this.query.pageIndex +
 						'&pageSize=' +
-						this.query.pageSize
+						this.query.pageSize,this.form
 					)
 					.then(res => {
 						console.log(res);
@@ -128,7 +128,7 @@
 			},
 			// 触发搜索按钮
 			handleSearch() {
-				this.$set(this.query, 'pageIndex', 1);
+				// this.$set(this.query, 'pageIndex', 1);
 				this.getData();
 			},
 			// 删除操作

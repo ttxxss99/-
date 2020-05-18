@@ -67,7 +67,13 @@
 					<el-input v-model="form.mark"></el-input>
 				</el-form-item>
 				<el-form-item label="工龄" label-width="80px">
-					<el-input v-model="form.workAge"></el-input>
+					<el-select v-model="form.workAge" placeholder="工龄" class="handle-select mr10">
+						<el-option key="1" label="1" value="1"></el-option>
+						<el-option key="2" label="2" value="2"></el-option>
+						<el-option key="3" label="3" value="3"></el-option>
+						<el-option key="4" label="4" value="4"></el-option>
+						<el-option key="5" label="5" value="5"></el-option>
+					</el-select>
 				</el-form-item>
 			</el-form>
 			<div slot="footer" class="dialog-footer">
@@ -92,7 +98,7 @@
 				personModelShow: false,
 				modelTtile: '',
 				isEdit: false,
-				isSerch: false,
+				// isSerch: false,
 				tableData: [],
 				multipleSelection: [],
 				delList: [],
@@ -119,23 +125,23 @@
 				//     this.tableData = res.list;
 				//     this.pageTotal = res.pageTotal || 50;
 				// });
-				if (!this.isSerch) {
-					this.$axios
-						.get(
-							'/employee/selectAll?currentPage=' +
-							this.query.pageIndex +
-							'&pageSize=' +
-							this.query.pageSize
-						)
-						.then(res => {
-							console.log(res);
-							this.tableData = res.data.data.items;
-							this.pageTotal = res.data.data.totalNum || 50;
-						})
-						.catch(err => {
-							console.log(err)
-						})
-				}else{
+				// if (!this.isSerch) {
+				// 	this.$axios
+				// 		.get(
+				// 			'/employee/selectAll?currentPage=' +
+				// 			this.query.pageIndex +
+				// 			'&pageSize=' +
+				// 			this.query.pageSize
+				// 		)
+				// 		.then(res => {
+				// 			console.log(res);
+				// 			this.tableData = res.data.data.items;
+				// 			this.pageTotal = res.data.data.totalNum || 50;
+				// 		})
+				// 		.catch(err => {
+				// 			console.log(err)
+				// 		})
+				// }else{
 					console.log(this.form)
 					this.$axios
 						.post(
@@ -148,18 +154,18 @@
 							console.log(res);
 							this.tableData = res.data.data.items;
 							this.pageTotal = res.data.data.totalNum || 50;
-							this.isSerch = false;
+							// this.isSerch = false;
 						})
 						.catch(err => {
 							console.log(err)
 						})
-				}
+				// }
 
 			},
 			// 触发搜索按钮
 			handleSearch() {
 				// this.$set(this.query, 'pageIndex', 1);
-				this.isSerch = true;
+				// this.isSerch = true;
 				this.getData();
 			},
 			// 删除操作

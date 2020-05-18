@@ -12,7 +12,7 @@ public interface EmployeeService {
 
     PageBean<Employee> selectByPrimaryKey(Employee employee,int currentPage, int pageSize);
 
-    PageBean<Employee> selectAll(int currentPage, int pageSize);
+    List<Employee> selectAll();
 
     int updateByPrimaryKey(Employee record);
 }

@@ -10,36 +10,29 @@
 		<div class="container">
 			<div class="handle-box">
 				<el-button type="primary" icon="el-icon-delete" class="handle-del mr10" @click="delAllSelection">批量删除</el-button>
-				
-				<el-input v-model="query.name" placeholder="用户名" class="handle-input mr10"></el-input>
+				<el-button type="primary" icon="el-icon-plus" class="handle-del mr10" @click="showModel('add')">增加</el-button>
+				<el-input v-model="query.eName" placeholder="用户名" class="handle-input mr10"></el-input>
+				<el-input v-model="query.pName" placeholder="地点" class="handle-input mr10"></el-input>
+				<div class="block" style="display: initial;">
+					<el-date-picker v-model="query.time" format="yyyy-MM-dd HH:mm:ss" value-format="yyyy-MM-dd HH:mm:ss"
+					type="daterange" align="right" unlink-panels range-separator="至"
+					 start-placeholder="开始日期" end-placeholder="结束日期" :picker-options="pickerOptions">
+					</el-date-picker>
+				</div>
 				<el-button type="primary" icon="el-icon-search" @click="handleSearch">搜索</el-button>
 			</div>
 			<el-table :data="tableData" border class="table" ref="multipleTable" header-cell-class-name="table-header"
 			 @selection-change="handleSelectionChange">
 				<el-table-column type="selection" width="55" align="center"></el-table-column>
 				<el-table-column prop="id" label="ID" width="55" align="center"></el-table-column>
-				<el-table-column prop="ename" label="用户名"></el-table-column>
-				<el-table-column prop="pname" label="地点"></el-table-column>
-				<!-- <el-table-column label="账户余额">
-					<template slot-scope="scope">￥{{scope.row.money}}</template>
-				</el-table-column> -->
-				<!-- <el-table-column label="头像(查看大图)" align="center">
-					<template slot-scope="scope">
-						<el-image class="table-td-thumb" :src="scope.row.thumb" :preview-src-list="[scope.row.thumb]"></el-image>
-					</template>
-				</el-table-column> -->
+				<el-table-column prop="eName" label="用户名"></el-table-column>
+				<el-table-column prop="pName" label="地点"></el-table-column>
 				<el-table-column prop="day" label="天数"></el-table-column>
-				<!-- <el-table-column label="状态" align="center">
-					<template slot-scope="scope">
-						<el-tag :type="scope.row.state==='成功'?'success':(scope.row.state==='失败'?'danger':'')">{{scope.row.state}}</el-tag>
-					</template>
-				</el-table-column> -->
-
-				<el-table-column prop="time" label="注册时间"></el-table-column>
+				<el-table-column prop="time" label="时间"></el-table-column>
 				<el-table-column prop="fine" label="借款"></el-table-column>
 				<el-table-column label="操作" width="180" align="center">
 					<template slot-scope="scope">
-						<el-button type="text" icon="el-icon-edit" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+						<el-button type="text" icon="el-icon-edit" @click="showModel('update', scope.row)">编辑</el-button>
 						<el-button type="text" icon="el-icon-delete" class="red" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
 					</template>
 				</el-table-column>
@@ -51,24 +44,16 @@
 		</div>
 
 		<!-- 编辑弹出框 -->
-		<el-dialog title="编辑" :visible.sync="editVisible" width="30%">
+		<el-dialog :title="modelTtile" :visible.sync="editVisible" width="30%">
 			<el-form :model="form">
 				<el-form-item label="姓名" label-width="80px">
 					<div class="block">
-					  <el-cascader
-					    v-model="form.ename"
-					    :options="options"
-					    :props="{ expandTrigger: 'hover' }"
-					    ></el-cascader><!-- @change="handleChange" -->
+						<el-cascader v-model="form.ename" :options="options" :props="{ expandTrigger: 'hover' }"></el-cascader><!-- @change="handleChange" -->
 					</div>
 				</el-form-item>
 				<el-form-item label="地点" label-width="80px">
 					<div class="block">
-					  <el-cascader
-					    v-model="form.pname"
-					    :options="options"
-					    :props="{ expandTrigger: 'hover' }"
-					    ></el-cascader>
+						<el-cascader v-model="form.pname" :options="options" :props="{ expandTrigger: 'hover' }"></el-cascader>
 					</div>
 				</el-form-item>
 				<el-form-item label="天数" label-width="80px">
@@ -79,7 +64,7 @@
 					</el-select>
 				</el-form-item>
 				<el-form-item label="借款" label-width="80px">
-					<el-input v-model="form.tel"></el-input>
+					<el-input v-model="form.fine"></el-input>
 				</el-form-item>
 			</el-form>
 			<span slot="footer" class="dialog-footer">
@@ -94,61 +79,76 @@
 	// import {
 	// 	fetchData
 	// } from '../../api/index';
-	
+
 	// import axios from 'axios';
-	
-	
+
+
 	export default {
 		name: 'salarydetail',
-		data() { 
+		data() {
 			return {
 				query: {
-					address: '',
-					name: '',
+					// address: '',
+					// name: '',
+					time:'',
 					pageIndex: 1,
 					pageSize: 10
 				},
 				tableData: [],
 				multipleSelection: [],
 				delList: [],
+				modelTtile: '',
 				editVisible: false,
+				isEdit: false,
 				pageTotal: 0,
 				form: {},
 				idx: -1,
 				id: -1,
-				object:{
-					id:this.$route.params.id
+				pickerOptions: {
+					shortcuts: [{
+						text: '最近一周',
+						onClick(picker) {
+							const end = new Date();
+							const start = new Date();
+							start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+							picker.$emit('pick', [start, end]);
+						}
+					}, {
+						text: '最近一个月',
+						onClick(picker) {
+							const end = new Date();
+							const start = new Date();
+							start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+							picker.$emit('pick', [start, end]);
+						}
+					}, {
+						text: '最近三个月',
+						onClick(picker) {
+							const end = new Date();
+							const start = new Date();
+							start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+							picker.$emit('pick', [start, end]);
+						}
+					}]
 				},
-				
-				value: [],
-				        options: [{
-				          value: 'employees',
-				          label: '员工',
-				          children: [{
-				            value: 'shejiyuanze',
-				            label: '设计原则'
-				          }, {
-				            value: 'daohang',
-				            label: '导航',
-				          }]
-				        }, {
-				          value: 'place',
-				          label: '地点',
-				          children: [{
-				            value: 'axure',
-				            label: 'Axure Components'
-				          }, {
-				            value: 'sketch',
-				            label: 'Sketch Templates'
-				          }, {
-				            value: 'jiaohu',
-				            label: '组件交互文档'
-				          }]
-				        }]
+				object: {
+					id: this.$route.params.id
+				},
+
+				// value: [],
+				options: [{
+					value: 'employees',
+					label: '员工',
+					children: []
+				}, {
+					value: 'place',
+					label: '地点',
+					children: []
+				}]
 			};
 		},
-		created(e) {
-			
+		created() {
+			this.query.id=this.$route.query.eId
 			this.getData();
 		},
 		methods: {
@@ -159,17 +159,34 @@
 				//     this.tableData = res.list;
 				//     this.pageTotal = res.pageTotal || 50;
 				// });
+				console.log(this.query)
 				this.$axios
 					.post(
 						'/salaryDetail/selectByName?currentPage=' +
 						this.query.pageIndex +
 						'&pageSize=' +
 						this.query.pageSize,
-						this.$route.query//参数
+						this.query //参数
 					)
 					.then(res => {
 						console.log(res);
 						console.log(this.$route.query);
+
+						for (let i = 0; i < res.data.employees.length; i++) {
+							let obj = {}
+							obj.value = res.data.employees[i].id,
+								obj.label = res.data.employees[i].name
+							this.options[0].children[i] = obj
+						}
+
+						for (let i = 0; i < res.data.posts.length; i++) {
+							let obj = {}
+							obj.value = res.data.posts[i].id,
+								obj.label = res.data.posts[i].name
+							this.options[1].children[i] = obj
+						}
+
+
 						this.tableData = res.data.data.items;
 						this.pageTotal = res.data.data.totalNum || 50;
 					})
@@ -212,16 +229,66 @@
 				this.multipleSelection = [];
 			},
 			// 编辑操作
-			handleEdit(index, row) {
-				this.idx = index;
-				this.form = row;
+			showModel(type, row) {
 				this.editVisible = true;
+				if (type === 'add') {
+					this.clearData()
+					this.modelTtile = '增加'
+				} else if (type === 'update') {
+					this.modelTtile = '修改信息'
+					this.isEdit = true
+					for (var key in this.form) {
+						this.form[key] = row[key]
+					}
+					this.form.id = row.id
+				}
 			},
 			// 保存编辑
 			saveEdit() {
-				this.editVisible = false;
-				this.$message.success(`修改第 ${this.idx + 1} 行成功`);
-				this.$set(this.tableData, this.idx, this.form);
+				if (this.isEdit) {
+					this.$axios
+						.post('/salaryDetail/update', this.form)
+						.then(res => {
+							if (res.data) {
+								// this.$message.info('修改成功')
+								// this.editVisible = false;
+								this.$message.success(`修改第 ${this.idx + 1} 行成功`);
+								this.$set(this.tableData, this.idx, this.form);
+								this.getData()
+								this.clearData()
+								this.isEdit = false
+								this.editVisible = false
+							}
+						})
+						.catch(err => {
+							console.log(err)
+						})
+				} else {
+					this.$axios
+						.post('/salaryDetail/insert', this.form)
+						.then(res => {
+							debugger
+							if (res.data) {
+								this.$message.info('添加成功')
+								this.getData()
+								this.clearData()
+								this.editVisible = false
+							}
+						})
+						.catch(err => {
+							debugger
+							console.log(err)
+						})
+				}
+			},
+			//清除数据
+			clearData() {
+				this.form = {
+					ename: '',
+					pname: '',
+					day: '',
+					fine: ''
+				}
 			},
 			// 分页导航
 			handlePageChange(val) {
