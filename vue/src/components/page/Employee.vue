@@ -11,11 +11,7 @@
 			<div class="handle-box">
 				<el-button type="danger" icon="el-icon-delete" class="handle-del mr10" @click="delAllSelection">批量删除</el-button>
 				<el-button type="primary" icon="el-icon-plus" class="handle-del mr10" @click="showModel('add')">增加</el-button>
-				<!-- <el-select v-model="query.address" placeholder="地址" class="handle-select mr10">
-					<el-option key="1" label="广东省" value="广东省"></el-option>
-					<el-option key="2" label="湖南省" value="湖南省"></el-option>
-				</el-select> -->
-				<el-input v-model="form.name" placeholder="用户名" class="handle-input mr10"></el-input>
+				<el-input v-model="query.name" placeholder="用户名" class="handle-input mr10"></el-input>
 				<el-button type="primary" icon="el-icon-search" @click="handleSearch">搜索</el-button>
 			</div>
 			<el-table :data="tableData" border class="table" ref="multipleTable" header-cell-class-name="table-header"
@@ -26,23 +22,11 @@
 				<el-table-column label="工龄">
 					<template slot-scope="scope">{{scope.row.workAge}}</template>
 				</el-table-column>
-				<!-- <el-table-column label="头像(查看大图)" align="center">
-					<template slot-scope="scope">
-						<el-image class="table-td-thumb" :src="scope.row.logicDel" :preview-src-list="[scope.row.logicDel]"></el-image>
-					</template>
-				</el-table-column> -->
 				<el-table-column prop="tel" label="电话"></el-table-column>
-
-				<!-- <el-table-column label="状态" align="center">
-					<template slot-scope="scope">
-						<el-tag :type="scope.row.logicDel==='成功'?'success':(scope.row.logicDel==='失败'?'danger':'')">{{scope.row.logicDel}}</el-tag>
-					</template>
-				</el-table-column> -->
 				<el-table-column prop="time" label="创建时间"></el-table-column>
 				<el-table-column prop="mark" label="说明"></el-table-column>
 				<el-table-column label="操作" width="180" align="center">
 					<template slot-scope="scope">
-						<!-- <el-button type="text" icon="el-icon-edit" @click="handleEdit(scope.$index, scope.row)">编辑</el-button> -->
 						<el-button type="text" icon="el-icon-edit" @click="showModel('update', scope.row)">编辑</el-button>
 						<el-button type="text" icon="el-icon-delete" class="red" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
 					</template>
@@ -98,11 +82,9 @@
 				personModelShow: false,
 				modelTtile: '',
 				isEdit: false,
-				// isSerch: false,
 				tableData: [],
 				multipleSelection: [],
 				delList: [],
-				// editVisible: false,
 				pageTotal: 0,
 				form: {
 					name: '',
@@ -120,28 +102,6 @@
 		methods: {
 			// 获取 easy-mock 的模拟数据
 			getData() {
-				// fetchData(this.query).then(res => {
-				//     console.log(res);
-				//     this.tableData = res.list;
-				//     this.pageTotal = res.pageTotal || 50;
-				// });
-				// if (!this.isSerch) {
-				// 	this.$axios
-				// 		.get(
-				// 			'/employee/selectAll?currentPage=' +
-				// 			this.query.pageIndex +
-				// 			'&pageSize=' +
-				// 			this.query.pageSize
-				// 		)
-				// 		.then(res => {
-				// 			console.log(res);
-				// 			this.tableData = res.data.data.items;
-				// 			this.pageTotal = res.data.data.totalNum || 50;
-				// 		})
-				// 		.catch(err => {
-				// 			console.log(err)
-				// 		})
-				// }else{
 					console.log(this.form)
 					this.$axios
 						.post(
@@ -197,10 +157,7 @@
 			},
 			delAllSelection() {
 				const length = this.multipleSelection.length;
-				// this.delList = this.delList.concat(this.multipleSelection);
-				
 				for (let i = 0; i < length; i++) {
-					// str += this.multipleSelection[i].name + ' ';
 					this.delList = this.delList.concat(this.multipleSelection[i].id);
 				}
 				this.$axios
@@ -208,7 +165,6 @@
 					.then(res => {
 						if (res.data) {
 							this.$message.success('删除成功');
-							// this.tableData.splice(index, 1);
 							this.getData()
 						}
 					})
@@ -246,8 +202,6 @@
 						.post('/employee/update', this.form)
 						.then(res => {
 							if (res.data) {
-								// this.$message.info('修改成功')
-								// this.editVisible = false;
 								this.$message.success(`修改第 ${this.idx + 1} 行成功`);
 								this.$set(this.tableData, this.idx, this.form);
 								this.getData()

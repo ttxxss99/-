@@ -18,4 +18,6 @@ public interface SalaryDetailService {
     PageBean<SalaryDetailVo> selectAll(int currentPage, int pageSize);
 
     int updateByPrimaryKey(SalaryDetail salaryDetail);
+
+
 }

@@ -57,11 +57,7 @@ public class PostServiceController {
 
     @ApiOperation(value = "删除单个岗位")
     @PostMapping(value = "/delete", consumes = "application/json")
-    public Object delete(@RequestBody String s) {
-        JSONObject jsonObject = JSON.parseObject(s);
-        List<Integer> integers = (List<Integer>) jsonObject.get("data");
-        Integer[] ids = new Integer[integers.size()];
-        integers.toArray(ids);
+    public Object delete(@RequestBody int[] ids) {
         int n = 0;
         for (int i : ids) {
             n = postService.deleteByPrimaryKey(i);

@@ -104,6 +104,9 @@
             <if test="pId!=null and pId!='' ">
                 and p_id = #{pId}
             </if>
+            <if test="id!=null and id!='' ">
+                and salary_detail.id = #{id}
+            </if>
         </where>
     </select>
     <select id="selectAll" resultMap="SalaryDetailVo">

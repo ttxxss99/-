@@ -137,13 +137,24 @@
 			},
 			// 删除操作
 			handleDelete(index, row) {
+				const that = this;
 				// 二次确认删除
 				this.$confirm('确定要删除吗？', '提示', {
 						type: 'warning'
 					})
 					.then(() => {
-						this.$message.success('删除成功');
-						this.tableData.splice(index, 1);
+						this.$axios
+							.post('/salaryDetail/delete', [row.id])
+							.then(res => {
+								if (res.data) {
+									this.$message.success('删除成功');
+									this.tableData.splice(index, 1);
+									this.getData()
+								}
+							})
+							.catch(err => {
+								console.log(err)
+							})
 					})
 					.catch(() => {});
 			},
@@ -153,13 +164,22 @@
 			},
 			delAllSelection() {
 				const length = this.multipleSelection.length;
-				let str = '';
-				this.delList = this.delList.concat(this.multipleSelection);
 				for (let i = 0; i < length; i++) {
-					str += this.multipleSelection[i].name + ' ';
+					this.delList = this.delList.concat(this.multipleSelection[i].id);
 				}
-				this.$message.error(`删除了${str}`);
+				this.$axios
+					.post('/salaryDetail/delete', this.delList)
+					.then(res => {
+						if (res.data) {
+							this.$message.success('删除成功');
+							this.getData()
+						}
+					})
+					.catch(err => {
+						console.log(err)
+					})
 				this.multipleSelection = [];
+				this.delList = [];
 			},
 			// 编辑操作
 			handleEdit(index, row) {

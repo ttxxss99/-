@@ -84,7 +84,7 @@ export default {
 				{
 				    icon: 'el-icon-lx-cascades',
 				    index: 'post',
-				    title: '岗位列表'
+				    title: '地点列表'
 				},
                 {
                     icon: 'el-icon-lx-cascades',

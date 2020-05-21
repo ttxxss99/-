@@ -10,6 +10,10 @@ public class SalaryDetailVo {
 
    private Integer id;
 
+   public void setId(Integer id) {
+      this.id = id;
+   }
+
    private Integer eId;
 
    public Integer geteId() {

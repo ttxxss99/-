@@ -10,6 +10,8 @@ import com.bishe.service.SalaryDetailService;
 import com.utils.LoggerUtil;
 import com.utils.PageBean;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.beanutils.ConvertUtils;
+import org.apache.commons.beanutils.converters.DateConverter;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,12 +36,14 @@ public class SalaryDetailController {
     @PostMapping(value = "/update", consumes = "application/json")
     public Object update(@RequestBody Map paramsMap) throws Exception {
         Map<String, Object> map = new HashMap<String, Object>();
+        paramsMap.remove("time");
+        ConvertUtils.register(new DateConverter(null), java.util.Date.class);
         SalaryDetailVo salaryDetailVo = (SalaryDetailVo) com.utils.BeanUtils.mapToObject(paramsMap, SalaryDetailVo.class);
         SalaryDetail salaryDetail = new SalaryDetail();
         salaryDetailVo.setTime(new Date());
         BeanUtils.copyProperties(salaryDetailVo, salaryDetail);
 
-        LoggerUtil.error(this.getClass().getName(), "update");
+        LoggerUtil.info(this.getClass().getName(), "update");
 
         if (null == salaryDetail) {
             map.put("data", "失败");
@@ -80,7 +84,7 @@ public class SalaryDetailController {
         map.put("posts", postService.select());
         map.put("data", salaryDetailVos);
         map.put("employees", employeeService.selectAll());
-        LoggerUtil.error(this.getClass().getName(), "selectByName");
+        LoggerUtil.info(this.getClass().getName(), "selectByName");
         return map;
     }
 
@@ -112,6 +116,23 @@ public class SalaryDetailController {
         }
         int n = salaryDetailService.insert(salaryDetail);
 
+        if (n > 0) {
+            map.put("data", "成功");
+            return map;
+        } else {
+            map.put("data", "失败");
+            return map;
+        }
+    }
+
+    @ApiOperation(value = "删除单个", notes = "删除单个")
+    @PostMapping(value = "/delete", consumes = "application/json")
+    public Object delete(@RequestBody int[] ids) {
+        int n = 0;
+        for (int i : ids) {
+            n = salaryDetailService.deleteByPrimaryKey(i);
+        }
+        Map<String, Object> map = new HashMap<String, Object>();
         if (n > 0) {
             map.put("data", "成功");
             return map;

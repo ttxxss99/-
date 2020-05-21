@@ -148,17 +148,12 @@
 			};
 		},
 		created() {
-			this.query.id=this.$route.query.eId
+			this.query.eId=this.$route.query.eId
 			this.getData();
 		},
 		methods: {
 			// 获取 easy-mock 的模拟数据
 			getData() {
-				// fetchData(this.query).then(res => {
-				//     console.log(res);
-				//     this.tableData = res.list;
-				//     this.pageTotal = res.pageTotal || 50;
-				// });
 				console.log(this.query)
 				this.$axios
 					.post(
@@ -170,32 +165,24 @@
 					)
 					.then(res => {
 						console.log(res);
-						console.log(this.$route.query);
-
 						for (let i = 0; i < res.data.employees.length; i++) {
 							let obj = {}
 							obj.value = res.data.employees[i].id,
 								obj.label = res.data.employees[i].name
 							this.options[0].children[i] = obj
 						}
-
 						for (let i = 0; i < res.data.posts.length; i++) {
 							let obj = {}
 							obj.value = res.data.posts[i].id,
 								obj.label = res.data.posts[i].name
 							this.options[1].children[i] = obj
 						}
-
-
 						this.tableData = res.data.data.items;
 						this.pageTotal = res.data.data.totalNum || 50;
 					})
 					.catch(err => {
 						console.log(err)
 					})
-
-
-
 			},
 			// 触发搜索按钮
 			handleSearch() {
@@ -204,13 +191,24 @@
 			},
 			// 删除操作
 			handleDelete(index, row) {
+				const that = this;
 				// 二次确认删除
 				this.$confirm('确定要删除吗？', '提示', {
 						type: 'warning'
 					})
 					.then(() => {
-						this.$message.success('删除成功');
-						this.tableData.splice(index, 1);
+						this.$axios
+							.post('/salaryDetail/delete', [row.id])
+							.then(res => {
+								if (res.data) {
+									this.$message.success('删除成功');
+									this.tableData.splice(index, 1);
+									this.getData()
+								}
+							})
+							.catch(err => {
+								console.log(err)
+							})
 					})
 					.catch(() => {});
 			},
@@ -220,13 +218,22 @@
 			},
 			delAllSelection() {
 				const length = this.multipleSelection.length;
-				let str = '';
-				this.delList = this.delList.concat(this.multipleSelection);
 				for (let i = 0; i < length; i++) {
-					str += this.multipleSelection[i].name + ' ';
+					this.delList = this.delList.concat(this.multipleSelection[i].id);
 				}
-				this.$message.error(`删除了${str}`);
+				this.$axios
+					.post('/salaryDetail/delete', this.delList)
+					.then(res => {
+						if (res.data) {
+							this.$message.success('删除成功');
+							this.getData()
+						}
+					})
+					.catch(err => {
+						console.log(err)
+					})
 				this.multipleSelection = [];
+				this.delList = [];
 			},
 			// 编辑操作
 			showModel(type, row) {
@@ -237,9 +244,11 @@
 				} else if (type === 'update') {
 					this.modelTtile = '修改信息'
 					this.isEdit = true
+					
 					for (var key in this.form) {
 						this.form[key] = row[key]
 					}
+					this.form = row
 					this.form.id = row.id
 				}
 			},
@@ -267,7 +276,6 @@
 					this.$axios
 						.post('/salaryDetail/insert', this.form)
 						.then(res => {
-							debugger
 							if (res.data) {
 								this.$message.info('添加成功')
 								this.getData()
@@ -276,7 +284,6 @@
 							}
 						})
 						.catch(err => {
-							debugger
 							console.log(err)
 						})
 				}

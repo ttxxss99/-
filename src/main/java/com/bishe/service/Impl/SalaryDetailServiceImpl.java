@@ -11,10 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class SalaryDetailServiceImpl implements SalaryDetailService {
@@ -40,6 +38,19 @@ public class SalaryDetailServiceImpl implements SalaryDetailService {
 
     @Override
     public int deleteByPrimaryKey(Integer id) {
+        SalaryDetailVo salaryDetailVo = new SalaryDetailVo();
+        salaryDetailVo.setId(id);
+        List<SalaryDetailVo> salaryDetailVos = salaryDetailDao.selectByPrimaryKey(salaryDetailVo);
+        SalaryDetailVo salaryDetail = salaryDetailVos.get(0);
+        Post post = postDao.selectById(salaryDetail.getpId());
+        SalarySheet salarySheet1 = salarySheetDao.selectByPrimaryKey(salaryDetail.geteId());
+        salarySheet1.setDay(salarySheet1.getDay()-salaryDetail.getDay());
+        salarySheet1.setTime(new Date());
+        //应该还有日工资*天数的钱
+        salarySheet1.setMoney(salarySheet1.getMoney()+salaryDetail.getFine()-(int)(salaryDetail.getDay()*post.getMoney()));
+        salarySheetDao.updateByPrimaryKey(salarySheet1);
+
+
         return salaryDetailDao.deleteByPrimaryKey(id);
     }
 
@@ -52,34 +63,26 @@ public class SalaryDetailServiceImpl implements SalaryDetailService {
         SalarySheet salarySheet1 = salarySheetDao.selectByPrimaryKey(salaryDetail.geteId());
         Post post = postDao.selectById(salaryDetail.getpId());
         if(null==salarySheet1){
-
             Employee employee =   new Employee();
             employee.setId(salaryDetail.geteId());
             List<Employee> employees = employeeDao.selectByPrimaryKey(employee);
             employee = employees.get(0);
-
             PayStructure payStructure = payStructureDao.selectByPrimaryKey(post.getpSId());
             List<SalaryDetailVo> salaryDetailVos = salaryDetailDao.selectByPrimaryKey(salaryDetailVo);
             int sum = salaryDetailVos.stream().mapToInt(SalaryDetailVo::getFine).sum();//借款
             double day = salaryDetailVos.stream().mapToDouble(SalaryDetailVo::getDay).sum();//总天数
-
             SalarySheet salarySheet = new SalarySheet();
-
             salarySheet.seteId(salaryDetail.geteId());
             salarySheet.setDay(day);
             salarySheet.setpSId(post.getpSId());
             salarySheet.setTime(new Date());
-
             salarySheet.setMoney(post.getMoney()+payStructure.getBasic()+(int)workAgeMap.get(employee.getWorkAge())-sum);
-
-
             salarySheetDao.insert(salarySheet);
         }else {
-
             salarySheet1.setDay(salarySheet1.getDay()+salaryDetail.getDay());
             salarySheet1.setTime(new Date());
             //应该还有日工资*天数的钱
-            salarySheet1.setMoney(salarySheet1.getMoney()-salaryDetail.getFine()+(int)salaryDetail.getDay()*post.getMoney());
+            salarySheet1.setMoney(salarySheet1.getMoney()-salaryDetail.getFine()+(int)(salaryDetail.getDay()*post.getMoney()));
             salarySheetDao.updateByPrimaryKey(salarySheet1);
         }
         return i;
@@ -108,8 +111,26 @@ public class SalaryDetailServiceImpl implements SalaryDetailService {
     @Override
     public int updateByPrimaryKey(SalaryDetail salaryDetail) {
         int i = salaryDetailDao.updateByPrimaryKey(salaryDetail);
-        SalarySheet salarySheet = salarySheetDao.selectByPrimaryKey(salaryDetail.geteId());
+        Post post = postDao.selectById(salaryDetail.getpId());
+        SalarySheet salarySheet1 = salarySheetDao.selectByPrimaryKey(salaryDetail.geteId());
+        SalaryDetailVo salaryDetailVo = new SalaryDetailVo();
 
+
+        Employee employee =   new Employee();
+        employee.setId(salaryDetail.geteId());
+        List<Employee> employees = employeeDao.selectByPrimaryKey(employee);
+        employee = employees.get(0);
+        salaryDetailVo.seteName(employee.getName());
+        PayStructure payStructure = payStructureDao.selectByPrimaryKey(post.getpSId());
+
+        List<SalaryDetailVo> salaryDetailVos = salaryDetailDao.selectByPrimaryKey(salaryDetailVo);
+        double daySum = salaryDetailVos.stream().mapToDouble(SalaryDetailVo::getDay).sum();
+        int fineSum =(int) salaryDetailVos.stream().mapToDouble(SalaryDetailVo::getFine).sum();
+        salarySheet1.setDay(daySum);
+        salarySheet1.setTime(new Date());
+        //应该还有日工资*天数的钱
+        salarySheet1.setMoney((int)(post.getMoney()*daySum)-fineSum+payStructure.getBasic()+(int)workAgeMap.get(employee.getWorkAge()));
+        salarySheetDao.updateByPrimaryKey(salarySheet1);
 
         return i;
     }

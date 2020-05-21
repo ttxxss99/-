@@ -37,7 +37,7 @@ export default new Router({
 				{
 				    path: '/post',
 				    component: () => import(/* webpackChunkName: "form" */ '../components/page/Post.vue'),
-				    meta: { title: '岗位列表' }
+				    meta: { title: '地点列表' }
 				},
                 {
                     path: '/icon',
