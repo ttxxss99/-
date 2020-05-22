@@ -63,7 +63,7 @@ public class SalaryDetailController {
     @PostMapping("/selectByName")
     public Object selectByName(@RequestBody Map paramsMap, int currentPage, int pageSize) throws Exception {
         Map<String, Object> map = new HashMap<String, Object>();
-        String boolen = (String) paramsMap.get("time");
+        String boolen =  paramsMap.get("time").toString();
         ArrayList<String> time = new ArrayList<>();
         if( boolen.length()==0){
              paramsMap.remove("time");

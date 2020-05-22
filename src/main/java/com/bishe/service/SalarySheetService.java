@@ -13,7 +13,7 @@ public interface SalarySheetService {
 
     SalarySheet selectByPrimaryKey(Integer id);
 
-    PageBean<SalarySheetVo> selectAll(int currentPage, int pageSize);
+    PageBean<SalarySheetVo> selectAll(SalarySheetVo salarySheetVo,int currentPage, int pageSize);
 
     int updateByPrimaryKey(SalarySheet salarySheet);
 }

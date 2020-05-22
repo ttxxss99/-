@@ -10,6 +10,10 @@ public class SalaryDetailVo {
 
    private Integer id;
 
+   public Integer getId() {
+      return id;
+   }
+
    public void setId(Integer id) {
       this.id = id;
    }
@@ -60,7 +64,7 @@ public class SalaryDetailVo {
 
    private Integer pId;
 
-   @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+   @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
    private Date time;
 
    public Date getTime() {
@@ -88,10 +92,10 @@ public class SalaryDetailVo {
    }
 
    //以下属性是DO作用
-   @JsonFormat(pattern="yyyy-MM-dd")
+   @JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
    private Date beginTime;
 
-   @JsonFormat(pattern="yyyy-MM-dd")
+   @JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
    private Date endTime;
 
    public Date getBeginTime() {

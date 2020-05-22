@@ -57,7 +57,7 @@ public class SalarySheet {
      *
      * @mbg.generated Fri Jan 10 10:54:28 CST 2020
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date time;
 
     /**

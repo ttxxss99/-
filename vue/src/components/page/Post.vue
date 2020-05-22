@@ -10,6 +10,7 @@
 		<div class="container">
 			<div class="handle-box">
 				<el-button type="primary" icon="el-icon-delete" class="handle-del mr10" @click="delAllSelection">批量删除</el-button>
+				<el-button type="primary" icon="el-icon-plus" class="handle-del mr10" @click="showModel('add')">增加</el-button>
 				<!-- <el-select v-model="query.address" placeholder="地址" class="handle-select mr10">
 					<el-option key="1" label="广东省" value="广东省"></el-option>
 					<el-option key="2" label="湖南省" value="湖南省"></el-option>
@@ -40,7 +41,7 @@
 				<el-table-column prop="time" label="注册时间"></el-table-column>
 				<el-table-column label="操作" width="180" align="center">
 					<template slot-scope="scope">
-						<el-button type="text" icon="el-icon-edit" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+						<el-button type="text" icon="el-icon-edit" @click="showModel(scope.$index, scope.row)">编辑</el-button>
 						<el-button type="text" icon="el-icon-delete" class="red" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
 					</template>
 				</el-table-column>
@@ -52,13 +53,13 @@
 		</div>
 
 		<!-- 编辑弹出框 -->
-		<el-dialog title="编辑" :visible.sync="editVisible" width="30%">
+		<el-dialog title="增加" :visible.sync="editVisible" width="30%">
 			<el-form ref="form" :model="form" label-width="70px">
-				<el-form-item label="用户名">
+				<el-form-item label="地点名">
 					<el-input v-model="form.name"></el-input>
 				</el-form-item>
-				<el-form-item label="地址">
-					<el-input v-model="form.address"></el-input>
+				<el-form-item label="日工资">
+					<el-input v-model="form.money"></el-input>
 				</el-form-item>
 			</el-form>
 			<span slot="footer" class="dialog-footer">
@@ -86,6 +87,7 @@
 					pageSize: 10
 				},
 				tableData: [],
+				isEdit: false,
 				multipleSelection: [],
 				delList: [],
 				editVisible: false,
@@ -133,13 +135,24 @@
 			},
 			// 删除操作
 			handleDelete(index, row) {
+				const that = this;
 				// 二次确认删除
 				this.$confirm('确定要删除吗？', '提示', {
 						type: 'warning'
 					})
 					.then(() => {
-						this.$message.success('删除成功');
-						this.tableData.splice(index, 1);
+						this.$axios
+							.post('/post/delete', [row.id])
+							.then(res => {
+								if (res.data) {
+									this.$message.success('删除成功');
+									this.tableData.splice(index, 1);
+									this.getData()
+								}
+							})
+							.catch(err => {
+								console.log(err)
+							})
 					})
 					.catch(() => {});
 			},
@@ -149,31 +162,87 @@
 			},
 			delAllSelection() {
 				const length = this.multipleSelection.length;
-				let str = '';
-				this.delList = this.delList.concat(this.multipleSelection);
 				for (let i = 0; i < length; i++) {
-					str += this.multipleSelection[i].name + ' ';
+					this.delList = this.delList.concat(this.multipleSelection[i].id);
 				}
-				this.$message.error(`删除了${str}`);
+				this.$axios
+					.post('/post/delete', this.delList)
+					.then(res => {
+						if (res.data) {
+							this.$message.success('删除成功');
+							this.getData()
+						}
+					})
+					.catch(err => {
+						console.log(err)
+					})
 				this.multipleSelection = [];
+				this.delList = [];
 			},
 			// 编辑操作
-			handleEdit(index, row) {
-				this.idx = index;
-				this.form = row;
+			showModel(type, row) {
 				this.editVisible = true;
+				if (type === 'add') {
+					this.clearData()
+					this.modelTtile = '增加'
+				} else if (type === 'update') {
+					this.modelTtile = '修改信息'
+					this.isEdit = true
+					
+					for (var key in this.form) {
+						this.form[key] = row[key]
+					}
+					this.form = row
+					this.form.id = row.id
+				}
 			},
+			// showModel(index, row) {
+			// 	this.idx = index;
+			// 	this.form = row;
+			// 	this.editVisible = true;
+			// },
 			// 保存编辑
 			saveEdit() {
-				this.editVisible = false;
-				this.$message.success(`修改第 ${this.idx + 1} 行成功`);
-				this.$set(this.tableData, this.idx, this.form);
+				if (this.isEdit) {
+					this.$axios
+						.post('/post/update', this.form)
+						.then(res => {
+							if (res.data) {
+								this.$message.success(`修改第 ${this.idx + 1} 行成功`);
+								this.$set(this.tableData, this.idx, this.form);
+								this.getData()
+								this.clearData()
+								this.isEdit = false
+								this.editVisible = false
+							}
+						})
+						.catch(err => {
+							console.log(err)
+						})
+				} else {
+					this.$axios
+						.post('/post/insert', this.form)
+						.then(res => {
+							if (res.data) {
+								this.$message.info('添加成功')
+								this.getData()
+								this.clearData()
+								this.editVisible = false
+							}
+						})
+						.catch(err => {
+							console.log(err)
+						})
+				}
 			},
 			// 分页导航
 			handlePageChange(val) {
 				this.$set(this.query, 'pageIndex', val);
 				this.getData();
-			}
+			},
+			clearData() {
+				this.form = {}
+			},
 		}
 	};
 </script>

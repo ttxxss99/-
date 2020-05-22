@@ -13,7 +13,7 @@ public class SalaryDetail extends Employee {
 
     private Integer pId;
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date time;
 
     private Integer fine;
